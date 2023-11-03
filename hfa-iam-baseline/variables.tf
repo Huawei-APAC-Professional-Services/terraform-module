@@ -40,3 +40,46 @@ variable "api_acl_ip_ranges" {
   type    = list(string)
   default = []
 }
+
+variable "enable_protection" {
+  type    = bool
+  default = false
+}
+
+variable "aksk_selfmanagement" {
+  type    = bool
+  default = false
+}
+
+variable "password_selfmanagement" {
+  type    = bool
+  default = false
+}
+
+variable "allow_change_email" {
+  type    = bool
+  default = false
+}
+
+variable "allow_change_mobile" {
+  type    = bool
+  default = false
+}
+
+variable "verification_email" {
+  type = string
+  default = null
+  validation {
+    condition     = var.enable_protection && var.verification_mobile == null
+    error_message = "This is parameter can be set to true Only when enable_protection is true"
+  }
+}
+
+variable "verification_mobile" {
+  type = string
+  default = null
+  validation {
+    condition     = var.enable_protection && verification_email == null
+    error_message = "This is parameter can be set to true Only when enable_protection is true"
+  }
+}

@@ -41,3 +41,15 @@ resource "huaweicloud_identity_acl" "api" {
     }
   }
 }
+
+resource "huaweicloud_identity_protection_policy" "main" {
+  protection_enabled = var.enable_protection
+  verification_email = var.verification_email
+  verification_mobile = var.verification_mobile
+  self_management {
+    access_key = var.aksk_selfmanagement
+    password   = var.password_selfmanagement
+    email      = var.allow_change_email
+    mobile     = var.allow_change_mobile
+  }
+}
