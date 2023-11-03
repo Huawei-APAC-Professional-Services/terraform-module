@@ -12,5 +12,5 @@ resource "huaweicloud_identity_agency" "hfa_network_admin" {
 }
 
 output "hfa_network_admin_agency_id" {
-  value = huaweicloud_identity_agency.hfa_networkd_admin.id
+  value = huaweicloud_identity_agency.hfa_network_admin.id
 }
