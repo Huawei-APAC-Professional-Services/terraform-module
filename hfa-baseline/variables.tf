@@ -3,5 +3,5 @@ variable "cts_bucket_name" {
 }
 
 variable "hfa_regions" {
-  type = list(string)
+  type = set(string)
 }
