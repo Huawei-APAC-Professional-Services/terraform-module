@@ -69,17 +69,9 @@ variable "allow_change_mobile" {
 variable "verification_email" {
   type = string
   default = null
-  validation {
-    condition     = var.enable_protection && var.verification_mobile == null
-    error_message = "This is parameter can be set to true Only when enable_protection is true"
-  }
 }
 
 variable "verification_mobile" {
   type = string
   default = null
-  validation {
-    condition     = var.enable_protection && verification_email == null
-    error_message = "This is parameter can be set to true Only when enable_protection is true"
-  }
 }
