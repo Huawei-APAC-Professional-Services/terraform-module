@@ -3,7 +3,7 @@ resource "huaweicloud_identity_agency" "hfa_security_admin" {
   description           = "Allow Security Team to view all resources in a member account and configure security features"
   delegated_domain_name = var.hfa_iam_account_name
 
-  domain_roles = ["Tenant Guest","LTS FullAccess","CTS FullAccess","Security Administrator"]
+  domain_roles = ["Tenant Guest", "LTS FullAccess", "CTS FullAccess", "Security Administrator"]
 }
 
 output "hfa_security_admin_agency_id" {

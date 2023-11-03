@@ -1,28 +1,72 @@
 variable "hfa_iam_account_name" {
-  type = string
+  type        = string
   description = "Central IAM Account Name"
 }
 
 variable "hfa_security_account_name" {
-  type = string
+  type        = string
   description = "Security Operation Account"
 }
 
 variable "hfa_security_admin_agency_name" {
-  type = string
+  type    = string
   default = "hfa_security_admin"
 }
 
 variable "hfa_network_admin_agency_name" {
-  type = string
+  type    = string
   default = "hfa_network_admin"
 }
 
 variable "hfa_base_agency_name" {
+  type    = string
   default = "hfa_base"
 }
 
 variable "hfa_cts_log_transfer_agency_name" {
+  type    = string
   default = "hfa_cts_log_transfer"
 }
 
+variable "password_combination" {
+  type        = number
+  default     = 4
+  description = "Require uppercase letters, lowercase letters, digits, and special characters in password"
+}
+
+variable "minimum_password_length" {
+  type    = number
+  default = 8
+}
+
+variable "password_reuse_limit" {
+  type        = number
+  default     = 2
+  description = "The lastest 2 passwords are not allowed to use by default"
+}
+
+variable "password_validity_period" {
+  type        = number
+  default     = 180
+  description = "Password must be changed after 180 days"
+}
+
+variable "console_acl_ip_cidrs" {
+  type    = list(string)
+  default = []
+}
+
+variable "console_acl_ip_ranges" {
+  type    = list(string)
+  default = []
+}
+
+variable "api_acl_ip_cidrs" {
+  type    = list(string)
+  default = []
+}
+
+variable "api_acl_ip_ranges" {
+  type    = list(string)
+  default = []
+}
