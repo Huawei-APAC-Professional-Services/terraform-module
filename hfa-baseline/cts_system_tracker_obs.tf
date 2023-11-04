@@ -1,7 +1,7 @@
 resource "huaweicloud_cts_tracker" "system_tracker" {
-  for_each = var.hfa_regions
-  region = each.value
-  bucket_name = var.cts_bucket_name
+  for_each = var.hfa_cts_regions
+  region = each.key
+  bucket_name = each.value
 }
 
 resource "huaweicloud_smn_topic" "hfa_cts_topic" {
