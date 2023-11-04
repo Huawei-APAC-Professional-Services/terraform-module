@@ -11,6 +11,6 @@ resource "huaweicloud_rms_policy_assignment" "iam_key_rotation" {
   status               = "Enabled"
   period               = var.hfa_config_period
   parameters = {
-    "maxAccessKeyAge" = "90"
+    "maxAccessKeyAge" = "\"90\""
   }
 }
