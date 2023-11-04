@@ -45,6 +45,6 @@ variable "hfa_config_bucket_region" {
 }
 
 variable "hfa_config_smn_topic" {
-  type = string
-  default = null
+  type = map(string)
+  default = {}
 }
