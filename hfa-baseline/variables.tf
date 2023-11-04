@@ -35,3 +35,16 @@ variable "hfa_config_accounts_list" {
   type = list(string)
   default = []
 }
+
+variable "hfa_config_bucket_name" {
+  type = string
+}
+
+variable "hfa_config_bucket_region" {
+  type = string
+}
+
+variable "hfa_config_smn_topic" {
+  type = string
+  default = null
+}
