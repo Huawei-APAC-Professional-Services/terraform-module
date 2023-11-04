@@ -25,3 +25,13 @@ variable "hfa_key_security_event_notification_email" {
   type    = string
   default = null
 }
+
+variable "hfa_config_aggregator_name" {
+  type = string
+  default = "hfa"
+}
+
+variable "hfa_config_accounts_list" {
+  type = list(string)
+  default = []
+}
