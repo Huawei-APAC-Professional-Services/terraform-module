@@ -3,16 +3,21 @@ variable "hfa_cts_regions" {
 }
 
 variable "hfa_cts_smn_topic_name" {
-  type = string
+  type    = string
   default = "hfa_cts_topic"
 }
 
 variable "hfa_cts_smn_topic_display_name" {
-  type = string
+  type    = string
   default = "hfa cts topic"
 }
 
 variable "hfa_root_user_monitored_activities" {
-  type = list(string)
-  default = [ "login" ]
+  type    = list(string)
+  default = ["login"]
+}
+
+variable "hfa_key_security_event_notification_email" {
+  type    = string
+  default = null
 }
