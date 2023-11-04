@@ -5,3 +5,7 @@ variable "cts_bucket_name" {
 variable "hfa_regions" {
   type = set(string)
 }
+
+variable "hfa_cts_regions" {
+  type = map(string)
+}
