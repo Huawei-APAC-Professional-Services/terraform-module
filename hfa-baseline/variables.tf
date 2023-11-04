@@ -27,12 +27,12 @@ variable "hfa_key_security_event_notification_email" {
 }
 
 variable "hfa_config_aggregator_name" {
-  type = string
+  type    = string
   default = "hfa"
 }
 
 variable "hfa_config_accounts_list" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 
@@ -45,6 +45,11 @@ variable "hfa_config_bucket_region" {
 }
 
 variable "hfa_config_smn_topic" {
-  type = map(string)
+  type    = map(string)
   default = {}
+}
+
+variable "hfa_config_period" {
+  type    = string
+  default = "Six_Hours"
 }
