@@ -42,7 +42,7 @@ resource "huaweicloud_cts_notification" "hfa_root_user_login" {
 }
 
 resource "huaweicloud_smn_subscription" "security" {
-  for_each  = var.hfa_key_security_event_notification_email == null ? [] : var.hfa_cts_regions
+  for_each  = var.hfa_key_security_event_notification_email == null ? {} : var.hfa_cts_regions
   region    = each.key
   topic_urn = local.smn_topics[each.key]
   endpoint  = var.hfa_key_security_event_notification_email
