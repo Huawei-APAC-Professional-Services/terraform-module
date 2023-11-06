@@ -17,13 +17,6 @@ locals {
   all_notifiable_events = var.hfa_cts_notification_additional == null ? local.key_notifiable_events : concat(local.key_notifiable_events, var.hfa_cts_notification_additional)
 }
 
-resource "random_string" "notification_id" {
-  length  = 8
-  special = false
-  lower   = true
-
-}
-
 resource "huaweicloud_cts_notification" "hfa_key_event_notification" {
   for_each       = var.hfa_cts_regions
   region         = each.key
