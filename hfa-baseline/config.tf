@@ -27,8 +27,8 @@ resource "huaweicloud_rms_resource_recorder" "main" {
   dynamic "smn_channel" {
     for_each = var.hfa_config_smn_topic
     content {
-      topic_urn = each.value
-      region    = each.key
+      topic_urn = smn_channel.value
+      region    = smn_channel.key
     }
   }
 }
