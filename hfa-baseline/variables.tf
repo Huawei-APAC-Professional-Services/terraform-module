@@ -1,3 +1,5 @@
+// This variable contains the information about the region and it's relevant buckt in that region
+// format: {"ap-southeast-1":"bucket-a"}
 variable "hfa_cts_regions" {
   type = map(string)
 }
