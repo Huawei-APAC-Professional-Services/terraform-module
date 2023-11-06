@@ -17,12 +17,17 @@ locals {
   all_notifiable_events = var.hfa_cts_notification_additional == null ? local.key_notifiable_events : concat(local.key_notifiable_events,var.hfa_cts_notification_additional)
 }
 
-resource "random_uuid" "notification_id" {}
+resource "random_string" "notification_id" {
+  length = 16
+  special = false
+  lower = true
+
+}
 
 resource "huaweicloud_cts_notification" "hfa_key_event_notification" {
   for_each       = var.hfa_cts_regions
   region         = each.key
-  name = join("_",["hfa_cts_notification",replace(random_uuid.notification_id.id,"-","_")])
+  name = join("_",["hfa_cts_notification",random_string.notification_id.result])
   operation_type = "customized"
   smn_topic      = local.smn_topics[each.key]
 
