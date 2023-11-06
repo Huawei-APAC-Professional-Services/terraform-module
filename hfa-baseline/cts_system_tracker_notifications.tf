@@ -14,7 +14,7 @@ locals {
     { "Service" : "VPC(NAT)", "Resource" : "dnatrule", "Operations" : ["createDnatRule", "deleteDnatRule", "updateDnatRule"] },
     { "Service" : "VPC(NAT)", "Resource" : "snatrule", "Operations" : ["createSnatRule", "deleteSnatRule", "updateSnatRule"] }
   ]
-  all_notifiable_events = concat(local.key_notifiable_events, var.hfa_cts_notification_additional)
+  all_notifiable_events = var.hfa_cts_notification_additional == null ? local.key_notifiable_events : concat(local.key_notifiable_events,var.hfa_cts_notification_additional)
 }
 
 resource "huaweicloud_cts_notification" "hfa_key_event_notification" {
