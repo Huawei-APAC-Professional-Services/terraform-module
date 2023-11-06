@@ -4,12 +4,6 @@ variable "hfa_cts_regions" {
   type = map(string)
 }
 
-// Currently this variable is used to create config service on the assumption that security account 
-// is responsible for aggregating config log in security account and creating authorization in every account except security account.
-variable "hfa_security_account_id" {
-  type = string
-}
-
 variable "hfa_cts_smn_topic_name" {
   type    = string
   default = "hfa_cts_topic"
@@ -30,18 +24,6 @@ variable "hfa_root_user_monitored_activities" {
 variable "hfa_key_security_event_notification_email" {
   type    = string
   default = null
-}
-
-// Config aggregator name in security account
-variable "hfa_config_aggregator_name" {
-  type    = string
-  default = "hfa"
-}
-
-// Huawei Cloud account ids from which config service will aggregate data
-variable "hfa_config_accounts_list" {
-  type    = list(string)
-  default = []
 }
 
 // config bucket name and region, config allow using bucket in another region
