@@ -53,3 +53,13 @@ variable "hfa_config_period" {
   type    = string
   default = "Six_Hours"
 }
+
+/*
+Additional CTS Notifications
+Format: [{"Service":"CTS","Resource":"tracker","Operations":["updateTracker","deleteTracker"]},{"Service":"CTS","Resource":"notification","Operations":["updateNotification","deleteNotification"]}]
+*/
+
+variable "hfa_cts_notification_additional" {
+  type    = list(map(string))
+  default = null
+}

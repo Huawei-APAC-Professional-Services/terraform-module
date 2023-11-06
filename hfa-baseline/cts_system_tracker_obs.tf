@@ -4,15 +4,6 @@ resource "huaweicloud_cts_tracker" "system_tracker" {
   bucket_name = each.value
 }
 
-data "huaweicloud_identity_group" "admin" {
-  name = "admin"
-}
-
-locals {
-  admin_users = toset([for u in data.huaweicloud_identity_group.admin.users : u.name])
-  smn_topics  = { for v in huaweicloud_smn_topic.hfa_cts_topic : v.region => v.id }
-}
-
 resource "huaweicloud_smn_topic" "hfa_cts_topic" {
   for_each                 = var.hfa_cts_regions
   region                   = each.key
@@ -20,6 +11,15 @@ resource "huaweicloud_smn_topic" "hfa_cts_topic" {
   display_name             = var.hfa_cts_smn_topic_display_name
   services_publish_allowed = "cts"
   introduction             = "created for hfa"
+}
+
+data "huaweicloud_identity_group" "admin" {
+  name = "admin"
+}
+
+locals {
+  smn_topics  = { for v in huaweicloud_smn_topic.hfa_cts_topic : v.region => v.id }
+  admin_users = toset([for u in data.huaweicloud_identity_group.admin.users : u.name])
 }
 
 resource "huaweicloud_cts_notification" "hfa_root_user_login" {
