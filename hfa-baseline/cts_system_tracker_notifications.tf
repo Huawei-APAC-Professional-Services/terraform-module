@@ -14,20 +14,20 @@ locals {
     { "Service" : "VPC(NAT)", "Resource" : "dnatrule", "Operations" : ["createDnatRule", "deleteDnatRule", "updateDnatRule"] },
     { "Service" : "VPC(NAT)", "Resource" : "snatrule", "Operations" : ["createSnatRule", "deleteSnatRule", "updateSnatRule"] }
   ]
-  all_notifiable_events = var.hfa_cts_notification_additional == null ? local.key_notifiable_events : concat(local.key_notifiable_events,var.hfa_cts_notification_additional)
+  all_notifiable_events = var.hfa_cts_notification_additional == null ? local.key_notifiable_events : concat(local.key_notifiable_events, var.hfa_cts_notification_additional)
 }
 
 resource "random_string" "notification_id" {
-  length = 8
+  length  = 8
   special = false
-  lower = true
+  lower   = true
 
 }
 
 resource "huaweicloud_cts_notification" "hfa_key_event_notification" {
   for_each       = var.hfa_cts_regions
   region         = each.key
-  name = join("_",["hfa",random_string.notification_id.result])
+  name           = "hfa_cts_key_notifications"
   operation_type = "customized"
   smn_topic      = local.smn_topics[each.key]
 
