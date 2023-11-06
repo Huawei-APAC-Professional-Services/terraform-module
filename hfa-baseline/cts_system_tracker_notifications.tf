@@ -27,7 +27,7 @@ resource "random_string" "notification_id" {
 resource "huaweicloud_cts_notification" "hfa_key_event_notification" {
   for_each       = var.hfa_cts_regions
   region         = each.key
-  name = join("_",["hfa_cts_notification",random_string.notification_id.result])
+  name = join("_",["hfa",random_string.notification_id.result])
   operation_type = "customized"
   smn_topic      = local.smn_topics[each.key]
 
