@@ -27,3 +27,8 @@ variable "hfa_cts_log_transfer_agency_name" {
   type    = string
   default = "hfa_cts_log_transfer"
 }
+
+variable "obs_cross_region_replication_name" {
+  type    = string
+  default = "obs_cross_region_replication"
+}
