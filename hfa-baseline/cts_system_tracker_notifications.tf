@@ -18,7 +18,7 @@ locals {
 }
 
 resource "random_string" "notification_id" {
-  length = 16
+  length = 8
   special = false
   lower = true
 
