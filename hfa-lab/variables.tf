@@ -15,3 +15,7 @@ variable "enterprise_administrator_require_password_reset" {
   type = bool
   default = false
 }
+
+variable "hfa_centralized_iam_account" {
+  type = string
+}
