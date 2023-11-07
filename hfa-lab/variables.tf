@@ -12,7 +12,7 @@ variable "enterprise_administrator_email" {
 }
 
 variable "enterprise_administrator_require_password_reset" {
-  type = bool
+  type    = bool
   default = false
 }
 
