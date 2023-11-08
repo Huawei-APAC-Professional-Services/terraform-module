@@ -68,7 +68,7 @@ resource "huaweicloud_rms_policy_assignment" "resources_in_supported_region" {
   status               = "Enabled"
   period               = var.hfa_config_period
   parameters = {
-    regionList = local.enalbed_regions
+    regions = local.enalbed_regions
   }
 }
 
