@@ -34,5 +34,5 @@ resource "huaweicloud_rms_resource_aggregator" "main" {
   count       = local.is_aggregator_account && var.hfa_config_member_account_ids != null ? 1 : 0
   name        = var.hfa_config_aggregator_name
   type        = "ACCOUNT"
-  account_ids = var.hfa_accounts_id_list
+  account_ids = var.hfa_config_member_account_ids
 }

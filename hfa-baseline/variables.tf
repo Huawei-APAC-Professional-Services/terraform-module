@@ -1,8 +1,3 @@
-// HFA Accounts List
-variable "hfa_accounts_id_list" {
-  type = list(string)
-}
-
 // This variable contains the information about the region and it's relevant bucket for cts data dump in that region in the security account
 // format: {"ap-southeast-1":"bucket-a"}
 variable "hfa_cts_regions" {
