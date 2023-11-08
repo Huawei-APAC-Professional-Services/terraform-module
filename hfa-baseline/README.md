@@ -26,3 +26,5 @@ module "hfa_security_account_baseline" {
   hfa_config_smn_topic             = zipmap(["ap-southeast-1"], ["topic_urn"])
 }
 ``` 
+
+## Config Rules

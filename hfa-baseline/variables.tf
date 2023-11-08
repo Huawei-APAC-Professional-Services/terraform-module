@@ -71,3 +71,8 @@ variable "hfa_cts_notification_additional" {
   type    = list(map(string))
   default = null
 }
+
+variable "hfa_iam_key_age" {
+  type = number
+  default = 90
+}
