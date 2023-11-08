@@ -10,6 +10,6 @@ resource "huaweicloud_rms_policy_assignment" "tracker_config_enabled_check" {
   status               = "Enabled"
   period               = var.hfa_config_period
   parameters = {
-    regionList = local.enalbed_regions
+    regionList = "[\"${local.enalbed_regions}\"]"
   }
 }
