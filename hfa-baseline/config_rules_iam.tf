@@ -78,11 +78,12 @@ resource "huaweicloud_rms_policy_assignment" "mfa_enabled_for_iam_console_access
 data "huaweicloud_rms_policy_definitions" "root_account_mfa_enabled" {
   name         = "root-account-mfa-enabled"
   policy_type  = "builtin"
-  trigger_type = "resource"
+  trigger_type = "period"
 }
 
 resource "huaweicloud_rms_policy_assignment" "root_account_mfa_enabled" {
   name                 = "root-account-mfa-enabled"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.root_account_mfa_enabled.definitions[0].id, "")
   status               = "Enabled"
+  period               = var.hfa_config_period
 }
