@@ -27,4 +27,26 @@ module "hfa_security_account_baseline" {
 }
 ``` 
 
-## Config Rules
+## Config Rules (20 builtins as of Nov 2023)
+| Rule Name                                   | Type    | Scope      | Status  | Comments           |
+|---------------------------------------------|---------|------------|---------|--------------------|
+| access-keys-rotated                         | builtin | IAM-All    | Enabled | 90 days by default |
+| iam-group-has-users-check                   | builtin | IAM-All    | Enabled |                    |
+| iam-root-access-key-check                   | builtin | IAM-All    | Enabled |                    |
+| iam-user-mfa-enabled                        | builtin | IAM-All    | Enabled |                    |
+| iam-user-single-access-key                  | builtin | IAM-All    | Enabled |                    |
+| mfa-enabled-for-iam-console-access          | builtin | IAM-All    | Enabled |                    |
+| root-account-mfa-enabled                    | builtin | IAM-All    | Enabled |                    |
+| iam-user-console-and-api-access-at-creation | builtin | IAM-All    | Enabled |                    |
+| cts-support-validate-check                  | builtin | CTS-All    | Enabled |                    |
+| cts-tracker-exists                          | builtin | CTS-All    | Enabled |                    |
+| cts-kms-encrypted-check                     | builtin | CTS-All    | Enabled |                    |
+| multi-region-cts-tracker-exists             | builtin | CTS-All    | Enabled |                    |
+| resources-in-supported-region               | builtin | All-All    | Enabled |                    |
+| kms-not-scheduled-for-deletion              | builtin | KMS-All    | Enabled |                    |
+| tracker-config-enabled-check                | builtin | Config-All | Enabled |                    |
+| ecs-instance-key-pair-login                 | builtin | ECS-All    | Enabled |                    |
+| ecs-instance-no-public-ip                   | builtin | ECS-All    | Enabled |                    |
+| ecs-multiple-public-ip-check                | builtin | ECS-All    | Enabled |                    |
+| volume-unused-check                         | builtin | ECS-All    | Enabled |                    |
+| volumes-encrypted-check                     | builtin | ECS-All    | Enabled |                    |
