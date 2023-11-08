@@ -36,7 +36,8 @@ resource "huaweicloud_rms_policy_assignment" "cts_kms_encrypted_check" {
 }
 
 locals {
-  enalbed_regions = join("", ["[", join(",", [for k, v in var.hfa_cts_regions_obs_config : k]), "]"])
+  // enalbed_regions = join("", ["[", join(",", [for k, v in var.hfa_cts_regions_obs_config : k]), "]"])
+  enalbed_regions = tolist([for k, v in var.hfa_cts_regions_obs_config : k])
 }
 
 data "huaweicloud_rms_policy_definitions" "multi_region_cts_tracker_exists" {
@@ -51,7 +52,7 @@ resource "huaweicloud_rms_policy_assignment" "multi_region_cts_tracker_exists" {
   status               = "Enabled"
   period               = var.hfa_config_period
   parameters = {
-    regionList = local.enalbed_regions
+    regionList = "[\"${local.enalbed_regions}\"]"
   }
 }
 
