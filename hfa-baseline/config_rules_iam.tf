@@ -10,7 +10,7 @@ resource "huaweicloud_rms_policy_assignment" "iam_key_rotation" {
   status               = "Enabled"
   period               = var.hfa_config_period
   parameters = {
-    maxAccessKeyAge = jsonencode(var.hfa_iam_key_age)
+    maxAccessKeyAge = jsonencode(tostring(var.hfa_iam_key_age))
   }
 }
 
