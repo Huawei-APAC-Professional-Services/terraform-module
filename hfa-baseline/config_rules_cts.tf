@@ -54,7 +54,7 @@ resource "huaweicloud_rms_policy_assignment" "multi_region_cts_tracker_exists" {
   status               = "Enabled"
   period               = var.hfa_config_period
   parameters = {
-    regionList = "[\"${local.enalbed_regions}\"]"
+    regionList = local.enalbed_regions
   }
 }
 
@@ -70,7 +70,7 @@ resource "huaweicloud_rms_policy_assignment" "resources_in_supported_region" {
   status               = "Enabled"
   period               = var.hfa_config_period
   parameters = {
-    regionList = "[\"${local.enalbed_regions}\"]"
+    regionList = local.enalbed_regions
   }
 }
 
