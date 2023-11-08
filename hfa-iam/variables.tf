@@ -3,7 +3,7 @@ variable "hfa_iam_account_name" {
   description = "Central IAM Account Name"
 }
 
-variable "hfa_security_account_name" {
+variable "hfa_log_account_name" {
   type        = string
   description = "Security Operation Account"
 }
