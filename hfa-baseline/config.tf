@@ -1,7 +1,7 @@
 data "huaweicloud_account" "current" {}
 
 locals {
-  is_aggregator_account = var.hfa_config_aggregator_account_id != null
+  is_aggregator_account = var.hfa_config_member_account_ids != null
 }
 
 resource "huaweicloud_rms_resource_aggregation_authorization" "main" {
@@ -31,7 +31,7 @@ resource "huaweicloud_rms_resource_recorder" "main" {
 }
 
 resource "huaweicloud_rms_resource_aggregator" "main" {
-  count       = local.is_aggregator_account && var.hfa_config_member_account_ids != null ? 1 : 0
+  count       = local.is_aggregator_account ? 1 : 0
   name        = var.hfa_config_aggregator_name
   type        = "ACCOUNT"
   account_ids = var.hfa_config_member_account_ids
