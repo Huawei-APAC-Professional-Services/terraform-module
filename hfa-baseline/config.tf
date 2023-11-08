@@ -1,11 +1,11 @@
 data "huaweicloud_account" "current" {}
 
 locals {
-  config_member_accounts = var.hfa_config_aggregator_account_id == data.huaweicloud_account.id ? [for account in var.hfa_accounts_id_list: account if account != data.huaweicloud_account.id ] : var.hfa_accounts_id_list
+  config_member_accounts = var.hfa_config_aggregator_account_id == data.huaweicloud_account.current.id ? [for account in var.hfa_accounts_id_list: account if account != data.huaweicloud_account.current.id ] : var.hfa_accounts_id_list
 }
 
 resource "huaweicloud_rms_resource_aggregation_authorization" "main" {
-  count      = var.hfa_config_aggregator_account_id == data.huaweicloud_account.id ? 0 : 1
+  count      = var.hfa_config_aggregator_account_id == data.huaweicloud_account.current.id ? 0 : 1
   account_id = var.hfa_config_aggregator_account_id
 }
 
@@ -31,7 +31,7 @@ resource "huaweicloud_rms_resource_recorder" "main" {
 }
 
 resource "huaweicloud_rms_resource_aggregator" "main" {
-  count       = var.hfa_config_aggregator_account_id == data.huaweicloud_account.id ? 1 : 0
+  count       = var.hfa_config_aggregator_account_id == data.huaweicloud_account.current.id ? 1 : 0
   name        = var.hfa_config_aggregator_name
   type        = "ACCOUNT"
   account_ids = local.config_member_accounts
