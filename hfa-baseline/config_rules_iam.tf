@@ -87,3 +87,15 @@ resource "huaweicloud_rms_policy_assignment" "root_account_mfa_enabled" {
   status               = "Enabled"
   period               = var.hfa_config_period
 }
+
+data "huaweicloud_rms_policy_definitions" "iam_user_console_and_api_access_at_creation" {
+  name         = "iam-user-console-and-api-access-at-creation"
+  policy_type  = "builtin"
+  trigger_type = "resource"
+}
+
+resource "huaweicloud_rms_policy_assignment" "iam_user_console_and_api_access_at_creation" {
+  name                 = "iam-user-console-and-api-access-at-creation"
+  policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_user_console_and_api_access_at_creation.definitions[0].id, "")
+  status               = "Enabled"
+}
