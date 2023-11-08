@@ -18,7 +18,7 @@ locals {
 }
 
 resource "huaweicloud_cts_notification" "hfa_key_event_notification" {
-  for_each       = var.hfa_cts_regions
+  for_each       = var.hfa_cts_regions_obs_config
   region         = each.key
   name           = "hfa_cts_key_notifications"
   operation_type = "customized"

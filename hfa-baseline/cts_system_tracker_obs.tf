@@ -1,12 +1,12 @@
 resource "huaweicloud_cts_tracker" "system_tracker" {
-  for_each      = var.hfa_cts_regions
+  for_each      = var.hfa_cts_regions_obs_config
   region        = each.key
   bucket_name   = each.value
   validate_file = true
 }
 
 resource "huaweicloud_smn_topic" "hfa_cts_topic" {
-  for_each                 = var.hfa_cts_regions
+  for_each                 = var.hfa_cts_regions_obs_config
   region                   = each.key
   name                     = var.hfa_cts_smn_topic_name
   display_name             = var.hfa_cts_smn_topic_display_name
@@ -24,7 +24,7 @@ locals {
 }
 
 resource "huaweicloud_cts_notification" "hfa_root_user_login" {
-  for_each       = var.hfa_cts_regions
+  for_each       = var.hfa_cts_regions_obs_config
   region         = each.key
   name           = "hfa_root_user_login"
   operation_type = "customized"
@@ -43,7 +43,7 @@ resource "huaweicloud_cts_notification" "hfa_root_user_login" {
 }
 
 resource "huaweicloud_smn_subscription" "security" {
-  for_each  = var.hfa_key_security_event_notification_email == null ? {} : var.hfa_cts_regions
+  for_each  = var.hfa_key_security_event_notification_email == null ? {} : var.hfa_cts_regions_obs_config
   region    = each.key
   topic_urn = local.smn_topics[each.key]
   endpoint  = var.hfa_key_security_event_notification_email
