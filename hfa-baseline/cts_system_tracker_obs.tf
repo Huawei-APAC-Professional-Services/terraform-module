@@ -1,7 +1,7 @@
 resource "huaweicloud_cts_tracker" "system_tracker" {
-  for_each    = var.hfa_cts_regions
-  region      = each.key
-  bucket_name = each.value
+  for_each      = var.hfa_cts_regions
+  region        = each.key
+  bucket_name   = each.value
   validate_file = true
 }
 

@@ -53,11 +53,17 @@ variable "hfa_config_period" {
 }
 
 variable "hfa_config_aggregator_account_id" {
-  type = string
+  type    = string
+  default = null
+}
+
+variable "hfa_config_member_account_ids" {
+  type    = list(string)
+  default = null
 }
 
 variable "hfa_config_aggregator_name" {
-  type = string
+  type    = string
   default = "hfa"
 }
 
