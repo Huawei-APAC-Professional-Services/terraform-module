@@ -59,14 +59,13 @@ resource "huaweicloud_rms_policy_assignment" "multi_region_cts_tracker_exists" {
 data "huaweicloud_rms_policy_definitions" "resources_in_supported_region" {
   name         = "resources-in-supported-region"
   policy_type  = "builtin"
-  trigger_type = "period"
+  trigger_type = "resource"
 }
 
 resource "huaweicloud_rms_policy_assignment" "resources_in_supported_region" {
   name                 = "resources-in-supported-region"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.resources_in_supported_region.definitions[0].id, "")
   status               = "Enabled"
-  period               = var.hfa_config_period
   parameters = {
     regions = local.enalbed_regions
   }
