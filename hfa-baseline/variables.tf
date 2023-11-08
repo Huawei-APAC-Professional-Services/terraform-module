@@ -1,3 +1,8 @@
+// HFA Accounts List
+variable "hfa_accounts_id_list" {
+  type = string
+}
+
 // This variable contains the information about the region and it's relevant bucket for cts data dump in that region in the security account
 // format: {"ap-southeast-1":"bucket-a"}
 variable "hfa_cts_regions" {
@@ -36,7 +41,7 @@ variable "hfa_config_bucket_region" {
   type = string
 }
 
-
+// Format: {"region name": "urn"}
 variable "hfa_config_smn_topic" {
   type    = map(string)
   default = {}
@@ -45,6 +50,15 @@ variable "hfa_config_smn_topic" {
 variable "hfa_config_period" {
   type    = string
   default = "Six_Hours"
+}
+
+variable "hfa_config_aggregator_account_id" {
+  type = string
+}
+
+variable "hfa_config_aggregator_name" {
+  type = string
+  default = "hfa"
 }
 
 /*

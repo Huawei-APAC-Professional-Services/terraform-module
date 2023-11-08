@@ -13,7 +13,6 @@ variable "hfa_config_aggregator_name" {
 // Huawei Cloud account ids from which config service will aggregate data
 variable "hfa_config_accounts_list" {
   type    = list(string)
-  default = []
 }
 
 // config bucket name and region, config allow using bucket in another region
