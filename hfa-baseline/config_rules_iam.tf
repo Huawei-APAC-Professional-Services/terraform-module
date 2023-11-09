@@ -64,9 +64,7 @@ resource "huaweicloud_rms_policy_assignment" "iam_user_single_access_key" {
 }
 
 data "huaweicloud_rms_policy_definitions" "mfa_enabled_for_iam_console_access" {
-  name         = "| builtin | IAM-All | Enabled |                    |"
-  policy_type  = "builtin"
-  trigger_type = "resource"
+  name         = "mfa-enabled-for-iam-console-access"
 }
 
 resource "huaweicloud_rms_policy_assignment" "mfa_enabled_for_iam_console_access" {
