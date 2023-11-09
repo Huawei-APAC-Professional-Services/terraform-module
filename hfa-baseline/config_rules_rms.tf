@@ -1,7 +1,5 @@
 data "huaweicloud_rms_policy_definitions" "tracker_config_enabled_check" {
   name         = "tracker-config-enabled-check"
-  policy_type  = "builtin"
-  trigger_type = "period"
 }
 
 resource "huaweicloud_rms_policy_assignment" "tracker_config_enabled_check" {
