@@ -50,3 +50,22 @@ module "hfa_security_account_baseline" {
 | ecs-multiple-public-ip-check                | builtin | ECS-All    | Enabled |                    |
 | volume-unused-check                         | builtin | ECS-All    | Enabled |                    |
 | volumes-encrypted-check                     | builtin | ECS-All    | Enabled |                    |
+
+
+
+## CIS Cloud Benchmark equivalent on Huawei Cloud
+
+<details>
+
+<summary>Identity and Access Management</summary>
+
+This section contains recommendations for configuring identity and access management related options.
+
+### Maintain contact details(Manual)
+
+Ensure contact email and mobile details for Huawei Cloud accounts are are current and map to more than one individual in your organization.
+
+Change Notification: []
+
+
+</details>

@@ -4,6 +4,11 @@ variable "hfa_cts_regions_obs_config" {
   type = map(string)
 }
 
+variable "hfa_cts_lts_enabled" {
+  type    = bool
+  default = false
+}
+
 variable "hfa_cts_smn_topic_name" {
   type    = string
   default = "hfa_cts_topic"
@@ -73,6 +78,6 @@ variable "hfa_cts_notification_additional" {
 }
 
 variable "hfa_iam_key_age" {
-  type = number
+  type    = number
   default = 90
 }

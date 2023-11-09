@@ -3,6 +3,7 @@ resource "huaweicloud_cts_tracker" "system_tracker" {
   region        = each.key
   bucket_name   = each.value
   validate_file = true
+  lts_enabled   = var.hfa_cts_lts_enabled
 }
 
 resource "huaweicloud_smn_topic" "hfa_cts_topic" {
