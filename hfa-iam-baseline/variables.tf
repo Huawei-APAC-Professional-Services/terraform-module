@@ -6,12 +6,12 @@ variable "password_combination" {
 
 variable "minimum_password_length" {
   type    = number
-  default = 8
+  default = 14
 }
 
 variable "password_reuse_limit" {
   type        = number
-  default     = 2
+  default     = 24
   description = "The lastest 2 passwords are not allowed to use by default"
 }
 

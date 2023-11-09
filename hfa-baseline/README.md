@@ -67,7 +67,7 @@ Ensure contact email and mobile details for Huawei Cloud accounts are are curren
 
 Change Notification: :x:
 
-:bangbang: Change Event is captured by CTS but not supported by Key Event Notifications
+:bangbang: Change Event is captured by CTS but not supported by Key Event Notifications  
 :bangbang: Not supported by Config
 
 ### Ensure no 'root' user account access key exists
@@ -80,6 +80,213 @@ Change Notification:
 ### Ensure MFA is enabled for the 'root' user account
 Authentication (MFA) adds an extra layer of protection on top of a username and password.
 
+Change Notification: 
+  - [x] CTS SMN Notification
+  - [x] Config Notification
 
+### Eliminate use of the 'root' user for administrative and daily tasks
+Root user has unrestricted access to and control over all resources in the Huawei Cloud account. It is highly recommended that the use of this account be avoided for everyday tasks.
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure IAM password policy requires minimum length of 14 or greater
+It is recommended that the password policy require a minimum password length 14.
+
+Change Notification: 
+  - [x] Config Notification
+
+### Ensure IAM password policy prevents password reuse
+It is recommended that the password policy prevent the reuse of passwords
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password
+Multi-Factor Authentication (MFA) adds an extra layer of authentication assurance beyond traditional credentials.
+
+Change Notification: 
+  - [x] CTS SMN Notification
+  - [x] Config Notification
+
+### Do not setup access keys during initial user setup for all IAM users that have a console password
+
+Change Notification: 
+  - [x] Config Notification
+
+### Ensure credentials unused for 45 days or greater are disabled
+
+### Ensure there is only one active access key available for any single IAM user with console access
+
+Change Notification: 
+  - [x] Config Notification
+
+### Ensure access keys are rotated every 90 days or less
+
+Change Notification: 
+  - [x] Config Notification
+
+### Ensure IAM Users Receive Permissions Only Through Groups
+
+### Ensure IAM policies that allow full "*:*" administrative privileges are not attached
+
+Change Notification: 
+  - [x] Config Notification
+
+### Ensure IAM instance roles are used for Huawei Cloud resource access from instances
+
+### Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments
+
+### Ensure hardware MFA is enabled for the 'root' user account
+
+</details>
+
+<details>
+
+<summary>Storage</summary>
+
+### Ensure MFA Delete is enabled on OBS buckets
+### Ensure that OBS Buckets are configured with 'Block public access (bucket settings)'
+
+</details>
+
+<details>
+
+<summary>ECS</summary>
+
+### Ensure EBS Volume Encryption is Enabled in all Regions
+
+Change Notification: 
+  - [x] Config Notification
+
+### Ensure that OBS Buckets are configured with 'Block public access (bucket settings)'
+
+</details>
+
+<details>
+<summary>Database</summary>
+
+### Ensure that encryption-at-rest is enabled for RDS Instances
+
+### Ensure Auto Minor Version Upgrade feature is Enabled for RDS Instances
+
+### Ensure that public access is not given to RDS Instance
+
+### 
+
+</details>
+
+<details>
+<summary>SFS</summary>
+
+### Ensure that encryption is enabled for SFS file systems
+
+### Ensure Auto Minor Version Upgrade feature is Enabled for RDS Instances
+
+### Ensure that public access is not given to RDS Instance
+
+### 
+
+</details>
+
+<details>
+<summary>SFS</summary>
+
+### Ensure CTS is enabled in all regions
+
+### Ensure CTS log file validation is enabled
+
+### Ensure the OBS bucket used to store CTS logs is not publicly accessible
+### Ensure CloudTrail trails are integrated with LTS
+### Ensure Config is enabled in all regions
+
+### Ensure OBS bucket access logging is enabled on the CTS OBS bucket
+
+### Ensure CTSlogs are encrypted at rest using KMS CMKs
+
+### Ensure rotation for customer created symmetric CMKs is enabled
+
+### Ensure VPC flow logging is enabled in all VPCs
+
+### Ensure that Object-level logging for write events is enabled for OBS bucket
+### Ensure that Object-level logging for read events is enabled for OBS bucket
+
+</details>
+
+<details>
+<summary>Monitoring</summary>
+
+### Ensure unauthorized API calls are monitored
+
+### Ensure management console sign-in without MFA is monitored
+
+### Ensure usage of 'root' account is monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure IAM policy changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure CTS configuration changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure Huawei Cloud Management Console authentication failures are monitored
+### Ensure disabling or scheduled deletion of customer created CMKs is monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure OBS bucket policy changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure Config configuration changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure security group changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure Network Access Control Lists (NACL) changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure route table changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure VPC changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+### Ensure Organizations changes are monitored
+
+Change Notification: 
+  - [x] CTS SMN Notification
+
+</details>
+
+<details>
+<summary>Networking</summary>
+
+### Ensure no Network ACLs allow ingress from 0.0.0.0/0 to remote server administration ports
+
+### Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports
+
+### Ensure no security groups allow ingress from ::/0 to remote server administration ports
+
+### Ensure the default security group of every VPC restricts all traffic
 
 </details>

@@ -83,3 +83,26 @@ resource "huaweicloud_rms_policy_assignment" "iam_user_console_and_api_access_at
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_user_console_and_api_access_at_creation.definitions[0].id, "")
   status               = "Enabled"
 }
+
+data "huaweicloud_rms_policy_definitions" "iam_password_policy" {
+  name         = "iam-password-policy"
+}
+
+resource "huaweicloud_rms_policy_assignment" "iam_password_policy" {
+  name                 = "iam-password-policy"
+  policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_password_policy.definitions[0].id, "")
+  status               = "Enabled"
+  parameters = {
+    pwdStrength = jsonencode("Strong")
+  }
+}
+
+data "huaweicloud_rms_policy_definitions" "iam_role_has_all_permissions" {
+  name         = "iam-role-has-all-permissions"
+}
+
+resource "huaweicloud_rms_policy_assignment" "iam_role_has_all_permissions" {
+  name                 = "iam-role-has-all-permissions"
+  policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_role_has_all_permissions.definitions[0].id, "")
+  status               = "Enabled"
+}
