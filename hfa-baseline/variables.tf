@@ -19,9 +19,10 @@ variable "hfa_cts_smn_topic_display_name" {
   default = "hfa cts topic"
 }
 
-variable "hfa_root_user_monitored_activities" {
-  type    = list(string)
-  default = ["login"]
+// [{"Service":"CTS","Resource":"tracker","Operations":["updateTracker","deleteTracker"]},{"Service":"CTS","Resource":"notification","Operations":["updateNotification","deleteNotification"]}]
+variable "hfa_root_user_monitored_activities_additional" {
+  type    = list(map(string))
+  default = null
 }
 
 // email for receiving key events notification

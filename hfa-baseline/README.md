@@ -65,7 +65,21 @@ This section contains recommendations for configuring identity and access manage
 
 Ensure contact email and mobile details for Huawei Cloud accounts are are current and map to more than one individual in your organization.
 
-Change Notification: []
+Change Notification: :x:
+
+:bangbang: Change Event is captured by CTS but not supported by Key Event Notifications
+:bangbang: Not supported by Config
+
+### Ensure no 'root' user account access key exists
+
+The 'root' user account is the most privileged user in Huawei Cloud Account, It is recommended that all access keys associated with the 'root' user account be deleted.
+Change Notification: 
+  - [x] CTS SMN Notification
+  - [x] Config Notification
+
+### Ensure MFA is enabled for the 'root' user account
+Authentication (MFA) adds an extra layer of protection on top of a username and password.
+
 
 
 </details>
