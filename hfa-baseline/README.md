@@ -64,21 +64,22 @@ module "hfa_security_account_baseline" {
 
 This section contains recommendations for configuring identity and access management related options.
 
-- [ ]  1.1 Maintain contact details [`Config`: :x:] [`CTS Key Events Notifications`: :x:] (Change Event is captured by CTS but not supported by Key Event Notifications and Config)
-- [ ]  1.2 Ensure no 'root' user account access key exists [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:]
-- [x] 1.3 Ensure MFA is enabled for the 'root' user account [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:]
-- [ ]  1.4 Eliminate use of the 'root' user for administrative and daily tasks [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:]
-- [x] 1.5 Ensure IAM password policy requires strong password or minimum length of 14 or greater [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:](security Settings by HFA default)
-- [ ]  1.6 Ensure IAM password policy prevents password reuse [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:](security Settings by HFA default)
-- [x] 1.7 Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:]
-- [ ]  1.8 Do not setup access keys during initial user setup for all IAM users that have a console password [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:]
-- [ ]  1.9 Ensure credentials unused for 45 days or greater are disabled [`Config`: :x:] [`CTS Key Events Notifications`: :x:]
-- [ ]  1.10 Ensure there is only one active access key available for any single IAM user with console access [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:]
-- [ ]  1.11 Ensure access keys are rotated every 90 days or less [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:]
-- [ ]  1.12 Ensure IAM Users Receive Permissions Only Through Groups [`Config`: :x:] [`CTS Key Events Notifications`: :x:]
-- [ ]  1.13 Ensure IAM policies that allow full "*:*" administrative privileges are not attached [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:]
-- [x] 1.14 Ensure hardware MFA is enabled for the 'root' user account [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:]
-- [ ]  1.15 Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments [`Config`: :x:] [`CTS Key Events Notifications`: :x:]
+- [ ]  1.1 Maintain contact details [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:] 
+       :bangbang: **Change Event is captured by CTS but not supported by Key Event Notifications and Config**
+- [ ]  1.2 Ensure no 'root' user account access key exists [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:] 
+- [x]  1.3 Ensure MFA is enabled for the 'root' user account [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
+- [ ]  1.4 Eliminate use of the 'root' user for administrative and daily tasks [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
+- [x]  1.5 Ensure IAM password policy requires strong password or minimum length of 14 or greater [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :white_check_mark:]
+- [ ]  1.6 Ensure IAM password policy prevents password reuse [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :white_check_mark:] [`Automated`: :x:]
+- [x]  1.7 Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
+- [ ]  1.8 Do not setup access keys during initial user setup for all IAM users that have a console password [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  1.9 Ensure credentials unused for 45 days or greater are disabled [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  1.10 Ensure there is only one active access key available for any single IAM user with console access [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  1.11 Ensure access keys are rotated every 90 days or less [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  1.12 Ensure IAM Users Receive Permissions Only Through Groups [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  1.13 Ensure IAM policies that allow full "*:*" administrative privileges are not attached [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [x] 1.14 Ensure hardware MFA is enabled for the 'root' user account [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
+- [ ]  1.15 Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
 </details>
 
 <details>
