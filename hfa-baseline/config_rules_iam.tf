@@ -22,17 +22,6 @@ resource "huaweicloud_rms_policy_assignment" "iam_group_has_users_check" {
   status               = "Enabled"
 }
 
-data "huaweicloud_rms_policy_definitions" "iam_root_access_key_check" {
-  name         = "iam-root-access-key-check"
-}
-
-resource "huaweicloud_rms_policy_assignment" "iam_root_access_key_check" {
-  name                 = "iam-root-access-key-check"
-  policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_root_access_key_check.definitions[0].id, "")
-  status               = "Enabled"
-  period               = var.hfa_config_period
-}
-
 data "huaweicloud_rms_policy_definitions" "iam_user_mfa_enabled" {
   name         = "iam-user-mfa-enabled"
 }
