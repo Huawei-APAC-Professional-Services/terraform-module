@@ -65,7 +65,7 @@ module "hfa_security_account_baseline" {
 This section contains recommendations for configuring identity and access management related options.
 
 - [ ]  1.1 Maintain contact details [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:] 
-       :bangbang: **Change Event is captured by CTS but not supported by Key Event Notifications and Config**
+         :bangbang: **Change Event is captured by CTS but not supported by Key Event Notifications and Config**
 - [ ]  1.2 Ensure no 'root' user account access key exists [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:] 
 - [x]  1.3 Ensure MFA is enabled for the 'root' user account [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
 - [ ]  1.4 Eliminate use of the 'root' user for administrative and daily tasks [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
