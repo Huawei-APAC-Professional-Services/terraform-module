@@ -84,150 +84,73 @@ This section contains recommendations for configuring identity and access manage
 
 <details>
 
-<summary>Storage</summary>
+<summary>2. Storage</summary>
 
-### Ensure MFA Delete is enabled on OBS buckets
-### Ensure that OBS Buckets are configured with 'Block public access (bucket settings)'
+This section contains recommendations for storage related services.
+
+- [ ]  2.1 Ensure MFA Delete is enabled on OBS buckets [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :white_check_mark:]  
+           :information_source: ** Critial Operation Protection enabled**
+- [ ]  2.2 Ensure that OBS Buckets are not public accessible [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  2.3 Ensure that encryption is enabled for SFS file systems [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  2.1 Ensure EBS Volume Encryption is Enabled in all Regions [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+
+</details>
+
+
+<details>
+<summary>3. Database</summary>
+
+- [ ]  3.1 Ensure that encryption-at-rest is enabled for RDS Instances [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  3.1 Ensure Auto Minor Version Upgrade feature is Enabled for RDS Instances [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  3.2 Ensure that public access is not given to RDS Instance [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+
+</details>
+
+
+<details>
+<summary>4. Management Service</summary>
+This section contains recommendations for management related services.
+
+- [x]  4.1 Ensure CTS is enabled in all regions [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :white_check_mark:]
+- [x]  4.2 Ensure CTS log file validation is enabled [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :white_check_mark:]
+- [ ]  4.3 Ensure the OBS bucket used to store CTS logs is not publicly accessible [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  4.4 Ensure CloudTrail trails are integrated with LTS  [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  4.5 Ensure Config is enabled in all regions [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :white_check_mark:]
+- [ ]  4.6 Ensure OBS bucket access logging is enabled on the CTS OBS bucket [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  4.7 Ensure CTS logs are encrypted at rest using KMS CMKs [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  4.8 Ensure rotation for customer created symmetric CMKs is enabled [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  4.9 Ensure VPC flow logging is enabled in all VPCs [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  4.10 Ensure that Object-level logging for write events is enabled for OBS bucket [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
 
 </details>
 
 <details>
+<summary>5. Networking</summary>
 
-<summary>ECS</summary>
-
-### Ensure EBS Volume Encryption is Enabled in all Regions
-
-Change Notification: 
-  - [x] Config Notification
-
-### Ensure that OBS Buckets are configured with 'Block public access (bucket settings)'
+- [ ]  5.1 Ensure no Network ACLs allow ingress from 0.0.0.0/0 to remote server administration ports [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  5.2 Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  5.3 Ensure no security groups allow ingress from ::/0 to remote server administration ports [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  5.4 Ensure no security groups allow ingress from ::/0 to remote server administration ports [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  5.5 Ensure the default security group of every VPC restricts all traffic [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
 
 </details>
 
 <details>
-<summary>Database</summary>
+<summary>6. Monitoring</summary>
 
-### Ensure that encryption-at-rest is enabled for RDS Instances
-
-### Ensure Auto Minor Version Upgrade feature is Enabled for RDS Instances
-
-### Ensure that public access is not given to RDS Instance
-
-### 
-
-</details>
-
-<details>
-<summary>SFS</summary>
-
-### Ensure that encryption is enabled for SFS file systems
-
-### Ensure Auto Minor Version Upgrade feature is Enabled for RDS Instances
-
-### Ensure that public access is not given to RDS Instance
-
-### 
-
-</details>
-
-<details>
-<summary>SFS</summary>
-
-### Ensure CTS is enabled in all regions
-
-### Ensure CTS log file validation is enabled
-
-### Ensure the OBS bucket used to store CTS logs is not publicly accessible
-### Ensure CloudTrail trails are integrated with LTS
-### Ensure Config is enabled in all regions
-
-### Ensure OBS bucket access logging is enabled on the CTS OBS bucket
-
-### Ensure CTSlogs are encrypted at rest using KMS CMKs
-
-### Ensure rotation for customer created symmetric CMKs is enabled
-
-### Ensure VPC flow logging is enabled in all VPCs
-
-### Ensure that Object-level logging for write events is enabled for OBS bucket
-### Ensure that Object-level logging for read events is enabled for OBS bucket
-
-</details>
-
-<details>
-<summary>Monitoring</summary>
-
-### Ensure unauthorized API calls are monitored
-
-### Ensure management console sign-in without MFA is monitored
-
-### Ensure usage of 'root' account is monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure IAM policy changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure CTS configuration changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure Huawei Cloud Management Console authentication failures are monitored
-### Ensure disabling or scheduled deletion of customer created CMKs is monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure OBS bucket policy changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure Config configuration changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure security group changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure Network Access Control Lists (NACL) changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure route table changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure VPC changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-### Ensure Organizations changes are monitored
-
-Change Notification: 
-  - [x] CTS SMN Notification
-
-</details>
-
-<details>
-<summary>Networking</summary>
-
-### Ensure no Network ACLs allow ingress from 0.0.0.0/0 to remote server administration ports
-
-### Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports
-
-### Ensure no security groups allow ingress from ::/0 to remote server administration ports
-
-### Ensure the default security group of every VPC restricts all traffic
+- [ ]  6.1 Ensure unauthorized API calls are monitored [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  6.2 Ensure management console sign-in without MFA is monitored [`Config`: :x:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
+- [ ]  6.3 Ensure usage of 'root' account is monitored [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
+- [ ]  6.4 Ensure IAM policy changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
+- [ ]  6.5 Ensure CTS configuration changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`: :white_check_mark:] [`Automated`: :x:]
+- [ ]  6.6 Ensure Huawei Cloud Management Console authentication failures are monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  6.7 Ensure disabling or scheduled deletion of customer created CMKs is monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  6.8 Ensure OBS bucket policy changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  6.9 Ensure Config configuration changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  6.10 Ensure security group changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  6.11 Ensure Network Access Control Lists (NACL) changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  6.12 Ensure route table changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  6.13 Ensure VPC changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
+- [ ]  6.14 Ensure Organizations changes are monitored [`Config`: :x:] [`CTS Key Events Notifications`:  :x:] [`Automated`: :x:]
 
 </details>
