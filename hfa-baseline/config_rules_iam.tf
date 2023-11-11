@@ -1,5 +1,5 @@
 data "huaweicloud_rms_policy_definitions" "iam_key_rotation" {
-  name         = "access-keys-rotated"
+  name = "access-keys-rotated"
 }
 
 resource "huaweicloud_rms_policy_assignment" "iam_key_rotation" {
@@ -13,7 +13,7 @@ resource "huaweicloud_rms_policy_assignment" "iam_key_rotation" {
 }
 
 data "huaweicloud_rms_policy_definitions" "iam_group_has_users_check" {
-  name         = "iam-group-has-users-check"
+  name = "iam-group-has-users-check"
 }
 
 resource "huaweicloud_rms_policy_assignment" "iam_group_has_users_check" {
@@ -23,7 +23,7 @@ resource "huaweicloud_rms_policy_assignment" "iam_group_has_users_check" {
 }
 
 data "huaweicloud_rms_policy_definitions" "iam_user_mfa_enabled" {
-  name         = "iam-user-mfa-enabled"
+  name = "iam-user-mfa-enabled"
 }
 
 resource "huaweicloud_rms_policy_assignment" "iam_user_mfa_enabled" {
@@ -33,7 +33,7 @@ resource "huaweicloud_rms_policy_assignment" "iam_user_mfa_enabled" {
 }
 
 data "huaweicloud_rms_policy_definitions" "iam_user_single_access_key" {
-  name         = "iam-user-single-access-key"
+  name = "iam-user-single-access-key"
 }
 
 resource "huaweicloud_rms_policy_assignment" "iam_user_single_access_key" {
@@ -43,7 +43,7 @@ resource "huaweicloud_rms_policy_assignment" "iam_user_single_access_key" {
 }
 
 data "huaweicloud_rms_policy_definitions" "mfa_enabled_for_iam_console_access" {
-  name         = "mfa-enabled-for-iam-console-access"
+  name = "mfa-enabled-for-iam-console-access"
 }
 
 resource "huaweicloud_rms_policy_assignment" "mfa_enabled_for_iam_console_access" {
@@ -53,7 +53,7 @@ resource "huaweicloud_rms_policy_assignment" "mfa_enabled_for_iam_console_access
 }
 
 data "huaweicloud_rms_policy_definitions" "root_account_mfa_enabled" {
-  name         = "root-account-mfa-enabled"
+  name = "root-account-mfa-enabled"
 }
 
 resource "huaweicloud_rms_policy_assignment" "root_account_mfa_enabled" {
@@ -64,7 +64,7 @@ resource "huaweicloud_rms_policy_assignment" "root_account_mfa_enabled" {
 }
 
 data "huaweicloud_rms_policy_definitions" "iam_user_console_and_api_access_at_creation" {
-  name         = "iam-user-console-and-api-access-at-creation"
+  name = "iam-user-console-and-api-access-at-creation"
 }
 
 resource "huaweicloud_rms_policy_assignment" "iam_user_console_and_api_access_at_creation" {
@@ -74,7 +74,7 @@ resource "huaweicloud_rms_policy_assignment" "iam_user_console_and_api_access_at
 }
 
 data "huaweicloud_rms_policy_definitions" "iam_password_policy" {
-  name         = "iam-password-policy"
+  name = "iam-password-policy"
 }
 
 resource "huaweicloud_rms_policy_assignment" "iam_password_policy" {
@@ -87,7 +87,7 @@ resource "huaweicloud_rms_policy_assignment" "iam_password_policy" {
 }
 
 data "huaweicloud_rms_policy_definitions" "iam_role_has_all_permissions" {
-  name         = "iam-role-has-all-permissions"
+  name = "iam-role-has-all-permissions"
 }
 
 resource "huaweicloud_rms_policy_assignment" "iam_role_has_all_permissions" {

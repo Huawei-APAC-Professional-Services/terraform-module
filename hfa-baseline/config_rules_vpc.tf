@@ -1,5 +1,5 @@
 data "huaweicloud_rms_policy_definitions" "vpc_acl_unused_check" {
-  name         = "vpc-acl-unused-check"
+  name = "vpc-acl-unused-check"
 }
 
 resource "huaweicloud_rms_policy_assignment" "vpc_acl_unused_check" {
@@ -9,7 +9,7 @@ resource "huaweicloud_rms_policy_assignment" "vpc_acl_unused_check" {
 }
 
 data "huaweicloud_rms_policy_definitions" "vpc_sg_restricted_ssh" {
-  name         = "vpc-sg-restricted-ssh"
+  name = "vpc-sg-restricted-ssh"
 }
 
 resource "huaweicloud_rms_policy_assignment" "vpc_sg_restricted_ssh" {
@@ -19,11 +19,21 @@ resource "huaweicloud_rms_policy_assignment" "vpc_sg_restricted_ssh" {
 }
 
 data "huaweicloud_rms_policy_definitions" "vpc_default_sg_closed" {
-  name         = "vpc-default-sg-closed"
+  name = "vpc-default-sg-closed"
 }
 
 resource "huaweicloud_rms_policy_assignment" "vpc_default_sg_closed" {
   name                 = "vpc-default-sg-closed"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.vpc_default_sg_closed.definitions[0].id, "")
+  status               = "Enabled"
+}
+
+data "huaweicloud_rms_policy_definitions" "vpc_flow_logs_enabled" {
+  name = "vpc-flow-logs-enabled"
+}
+
+resource "huaweicloud_rms_policy_assignment" "vpc_flow_logs_enabled" {
+  name                 = "vpc-flow-logs-enabled"
+  policy_definition_id = try(data.huaweicloud_rms_policy_definitions.vpc_flow_logs_enabled.definitions[0].id, "")
   status               = "Enabled"
 }

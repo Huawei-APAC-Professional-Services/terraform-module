@@ -4,33 +4,33 @@ locals {
     { "Service" : "CTS", "Resource" : "notification", "Operations" : ["updateNotification", "deleteNotification"] },
     { "Service" : "CTS", "Resource" : "notification", "Operations" : ["updateNotification", "deleteNotification"] },
     { "Service" : "KMS", "Resource" : "cmk", "Operations" : ["disableKey", "scheduleKeyDeletion", "deleteKeyRiskTips", "enableKey", "cancelKeyDeletion"] },
-    { "Service" : "OBS", "Resource" : "bucket", "Operations" : ["deleteBucket", "deleteBucketCustomdomain", "deleteBucketLifecycle", "deleteBucketPolicy", "deleteBucketReplication", "deleteBucketWebsite","setBucketAcl","setBucketPolicy","setBucketVersioning","setBucketLifecycle"] },
+    { "Service" : "OBS", "Resource" : "bucket", "Operations" : ["deleteBucket", "deleteBucketCustomdomain", "deleteBucketLifecycle", "deleteBucketPolicy", "deleteBucketReplication", "deleteBucketWebsite", "setBucketAcl", "setBucketPolicy", "setBucketVersioning", "setBucketLifecycle"] },
     { "Service" : "VPC", "Resource" : "eip", "Operations" : ["createEip", "unbindEip"] },
     { "Service" : "VPC", "Resource" : "vpc", "Operations" : ["deleteVpc", "modifyVpc"] },
-    { "Service" : "VPC", "Resource" : "firewall-groups", "Operations" : ["updateFirewallGroup","deleteFirewallGroup","createFirewallGroup"] },
+    { "Service" : "VPC", "Resource" : "firewall-groups", "Operations" : ["updateFirewallGroup", "deleteFirewallGroup", "createFirewallGroup"] },
     { "Service" : "VPC", "Resource" : "vpn", "Operations" : ["createVpn", "deleteVpn", "modifyVpn"] },
     { "Service" : "VPC", "Resource" : "security-groups", "Operations" : ["updateSecurity-group", "deleteSecurity-group"] },
-    { "Service" : "VPC", "Resource" : "routetables", "Operations" : ["updateRouteTable","deleteRouteTable"] },
+    { "Service" : "VPC", "Resource" : "routetables", "Operations" : ["updateRouteTable", "deleteRouteTable"] },
     { "Service" : "IAM", "Resource" : "SecurityPolicy", "Operations" : ["modifySecurityPolicy"] },
     { "Service" : "IAM", "Resource" : "MFA", "Operations" : ["UnBindMFA"] },
-    { "Service" : "IAM", "Resource" : "Policy", "Operations" : ["createRole","updateRole","deleteRole"] },
+    { "Service" : "IAM", "Resource" : "Policy", "Operations" : ["createRole", "updateRole", "deleteRole"] },
     { "Service" : "IAM", "Resource" : "user", "Operations" : ["modifyUserMobile", "modifyUserEmail", "updateCredential"] },
     { "Service" : "IAM", "Resource" : "user", "Operations" : ["modifyUserMobile", "modifyUserEmail", "updateCredential"] },
-    { "Service" : "RMS", "Resource" : "trackerConfig", "Operations" : ["createOrUpdateTrackerConfig","deleteTrackerConfig"] },
-    { "Service" : "RMS", "Resource" : "policy", "Operations" : ["deletePolicyAssignment","updatePolicyAssignment","disablePolicyAssignment"] },
+    { "Service" : "RMS", "Resource" : "trackerConfig", "Operations" : ["createOrUpdateTrackerConfig", "deleteTrackerConfig"] },
+    { "Service" : "RMS", "Resource" : "policy", "Operations" : ["deletePolicyAssignment", "updatePolicyAssignment", "disablePolicyAssignment"] },
     { "Service" : "VPC(NAT)", "Resource" : "dnatrule", "Operations" : ["createDnatRule", "deleteDnatRule", "updateDnatRule"] },
     { "Service" : "VPC(NAT)", "Resource" : "snatrule", "Operations" : ["createSnatRule", "deleteSnatRule", "updateSnatRule"] },
-    { "Service" : "Organizations", "Resource" : "Organizations", "Operations" : ["DeleteOrganizations","LeaveOrganizations"] },
-    { "Service" : "Organizations", "Resource" : "DelegatedAdministrator", "Operations" : ["RegisterDelegatedAdministrator","DeregisterDelegatedAdministrator"] },
-    { "Service" : "Organizations", "Resource" : "TrustedService", "Operations" : ["EnableTrustedService","DisableTrustedService"] },
-    { "Service" : "Organizations", "Resource" : "Account", "Operations" : ["InviteAccount","RemoveAccount","MoveAccount"] }
+    { "Service" : "Organizations", "Resource" : "Organizations", "Operations" : ["DeleteOrganizations", "LeaveOrganizations"] },
+    { "Service" : "Organizations", "Resource" : "DelegatedAdministrator", "Operations" : ["RegisterDelegatedAdministrator", "DeregisterDelegatedAdministrator"] },
+    { "Service" : "Organizations", "Resource" : "TrustedService", "Operations" : ["EnableTrustedService", "DisableTrustedService"] },
+    { "Service" : "Organizations", "Resource" : "Account", "Operations" : ["InviteAccount", "RemoveAccount", "MoveAccount"] }
   ]
   key_notifiable_events_root = [
     { "Service" : "IAM", "Resource" : "user", "Operations" : ["login"] },
     { "Service" : "IAM", "Resource" : "credential", "Operations" : ["createCredential"] }
   ]
-  smn_topics  = { for v in huaweicloud_smn_topic.hfa_cts_topic : v.region => v.id }
-  admin_users = toset([for u in data.huaweicloud_identity_group.admin.users : u.name])
+  smn_topics                 = { for v in huaweicloud_smn_topic.hfa_cts_topic : v.region => v.id }
+  admin_users                = toset([for u in data.huaweicloud_identity_group.admin.users : u.name])
   all_notifiable_events      = var.hfa_cts_notification_additional == null ? local.key_notifiable_events : concat(local.key_notifiable_events, var.hfa_cts_notification_additional)
   all_notifiable_events_root = var.hfa_root_user_monitored_activities_additional == null ? local.key_notifiable_events_root : concat(local.key_notifiable_events_root, var.hfa_root_user_monitored_activities_additional)
 }

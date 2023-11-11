@@ -1,5 +1,5 @@
 data "huaweicloud_rms_policy_definitions" "kms_not_scheduled_for_deletion" {
-  name         = "kms-not-scheduled-for-deletion"
+  name = "kms-not-scheduled-for-deletion"
 }
 
 resource "huaweicloud_rms_policy_assignment" "kms_not_scheduled_for_deletion" {
