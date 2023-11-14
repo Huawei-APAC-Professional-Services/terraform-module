@@ -11,7 +11,7 @@ variable "minimum_password_length" {
 
 variable "password_reuse_limit" {
   type        = number
-  default     = 24
+  default     = 10
   description = "The lastest 2 passwords are not allowed to use by default"
 }
 
