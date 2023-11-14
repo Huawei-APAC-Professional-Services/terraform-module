@@ -5,7 +5,11 @@ data "huaweicloud_rms_policy_definitions" "cts_support_validate_check" {
 resource "huaweicloud_rms_policy_assignment" "cts_support_validate_check" {
   name                 = "cts-support-validate-check"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.cts_support_validate_check.definitions[0].id, "")
-  status               = "Enabled"
+  policy_filter {
+    resource_provider = "cts"
+    resource_type     = "trackers"
+  }
+  status = "Enabled"
 }
 
 data "huaweicloud_rms_policy_definitions" "cts_tracker_exists" {
@@ -26,7 +30,11 @@ data "huaweicloud_rms_policy_definitions" "cts_kms_encrypted_check" {
 resource "huaweicloud_rms_policy_assignment" "cts_kms_encrypted_check" {
   name                 = "cts-kms-encrypted-check"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.cts_kms_encrypted_check.definitions[0].id, "")
-  status               = "Enabled"
+  policy_filter {
+    resource_provider = "cts"
+    resource_type     = "trackers"
+  }
+  status = "Enabled"
 }
 
 locals {

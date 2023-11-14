@@ -38,7 +38,7 @@ module "hfa_security_account_baseline" {
 | mfa-enabled-for-iam-console-access          | builtin | IAM    | Enabled |                    |
 | root-account-mfa-enabled                    | builtin | IAM    | Enabled |                    |
 | iam-user-console-and-api-access-at-creation | builtin | IAM    | Enabled |                    |
-| iam-password-policy                         | builtin | IAM    | Enabled | Strong             |
+| iam-password-policy                         | builtin | IAM    | Enabled | Strong by default  |
 | iam-role-has-all-permissions                | builtin | IAM    | Enabled |                    |
 | cts-support-validate-check                  | builtin | CTS    | Enabled |                    |
 | cts-tracker-exists                          | builtin | CTS    | Enabled |                    |
@@ -56,6 +56,9 @@ module "hfa_security_account_baseline" {
 | vpc-sg-restricted-ssh                       | builtin | VPC    | Enabled |                    |
 | vpc-default-sg-closed                       | builtin | VPC    | Enabled |                    |
 | vpc-flow-logs-enabled                       | builtin | VPC    | Enabled |                    |
+| rds-instance-no-public-ip                   | builtin | RDS    | Enabled |                    |
+| rds-instances-enable-kms                    | builtin | RDS    | Enabled |                    |
+| rds-instance-enable-backup                  | builtin | RDS    | Enabled |                    |
 
 ## CIS Cloud Benchmark equivalent on Huawei Cloud
 
@@ -68,18 +71,18 @@ This section contains recommendations for configuring identity and access manage
 - [ ]  1.1 Maintain account contact details [`Config`: :x:]
 :bangbang: **Change Event is captured by CTS but not supported by Key Event Notifications and Config**
 - [ ]  1.2 Ensure no 'root' user account access key exists [`Config`: :x:]
-- [x]  1.3 Ensure MFA is enabled for the 'root' user account [`Config`: :white_check_mark:]
+- [ ]  1.3 Ensure MFA is enabled for the 'root' user account [`Config`: :white_check_mark:]
 - [ ]  1.4 Eliminate use of the 'root' user for administrative and daily tasks [`Config`: :x:]
 - [x]  1.5 Ensure IAM password policy requires strong password or minimum length of 14 or greater [`Config`: :white_check_mark:]
-- [ ]  1.6 Ensure IAM password policy prevents password reuse [`Config`: :x:]
-- [x]  1.7 Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password [`Config`: :white_check_mark:]
+- [x]  1.6 Ensure IAM password policy prevents password reuse [`Config`: :x:]
+- [ ]  1.7 Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password [`Config`: :white_check_mark:]
 - [ ]  1.8 Do not setup access keys during initial user setup for all IAM users that have a console password [`Config`: :white_check_mark:]
 - [ ]  1.9 Ensure credentials unused for 45 days or greater are disabled [`Config`: :x:]
 - [ ]  1.10 Ensure there is only one active access key available for any single IAM user with console access [`Config`: :white_check_mark:]
 - [ ]  1.11 Ensure access keys are rotated every 90 days or less [`Config`: :white_check_mark:]
 - [ ]  1.12 Ensure IAM Users Receive Permissions Only Through Groups [`Config`: :x:]
-- [ ]  1.13 Ensure IAM policies that allow full "*:*" administrative privileges are not attached [`Config`: :white_check_mark:] [`CTS Key Events Notifications`: :x:] [`Automated`: :x:]
-- [x] 1.14 Ensure hardware MFA is enabled for the 'root' user account [`Config`: :white_check_mark:]
+- [ ]  1.13 Ensure IAM policies that allow full "*:*" administrative privileges are not attached [`Config`: :white_check_mark:]
+- [ ]  1.14 Ensure hardware MFA is enabled for the 'root' user account [`Config`: :white_check_mark:]
 - [ ]  1.15 Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments [`Config`: :x:]
 </details>
 
@@ -101,10 +104,10 @@ This section contains recommendations for storage related services.
 <details>
 <summary>3. Database</summary>
 
-- [ ]  3.1 Ensure that encryption-at-rest is enabled for RDS Instances [`Config`: :x:]
+- [ ]  3.1 Ensure that encryption-at-rest is enabled for RDS Instances [`Config`: :white_check_mark:]
 - [ ]  3.1 Ensure Auto Minor Version Upgrade feature is Enabled for RDS Instances [`Config`: :x:]
-- [x]  3.2 Ensure that public access is not given to RDS Instance [`Config`: :white_check_mark:]
-- [ ]  3.2 Ensure that automated backup is enabled RDS Instance [`Config`: :x:]
+- [ ]  3.2 Ensure that public access is not given to RDS Instance [`Config`: :white_check_mark:]
+- [ ]  3.2 Ensure that automated backup is enabled RDS Instance [`Config`: :white_check_mark:]
 
 </details>
 
@@ -115,11 +118,11 @@ This section contains recommendations for management related services.
 
 - [x]  4.1 Ensure CTS is enabled in all regions [`Config`: :white_check_mark:]
 - [x]  4.2 Ensure CTS log file validation is enabled [`Config`: :white_check_mark:]
-- [ ]  4.3 Ensure the OBS bucket used to store CTS logs is not publicly accessible [`Config`: :x:]
-- [ ]  4.4 Ensure CTS trails are integrated with LTS  [`Config`: :x:]
+- [x]  4.3 Ensure the OBS bucket used to store CTS logs is not publicly accessible [`Config`: :x:]
+- [x]  4.4 Ensure CTS trails are integrated with LTS  [`Config`: :x:]
 - [x]  4.5 Ensure Config is enabled in all regions [`Config`: :white_check_mark:]
-- [ ]  4.6 Ensure OBS bucket access logging is enabled on the CTS OBS bucket [`Config`: :x:]
-- [ ]  4.7 Ensure CTS logs are encrypted at rest using KMS CMKs [`Config`: :x:]
+- [x]  4.6 Ensure OBS bucket access logging is enabled on the CTS OBS bucket [`Config`: :x:]
+- [x]  4.7 Ensure CTS logs are encrypted at rest using KMS CMKs [`Config`: :x:]
 - [ ]  4.8 Ensure rotation for customer created symmetric CMKs is enabled [`Config`: :x:]
 - [x]  4.9 Ensure VPC flow logging is enabled in all VPCs [`Config`: :x:]
 - [ ]  4.10 Ensure that Object-level logging for write events is enabled for OBS bucket [`Config`: :x:]
@@ -133,7 +136,7 @@ This section contains recommendations for management related services.
 - [ ]  5.2 Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports [`Config`: :x:]
 - [ ]  5.3 Ensure no security groups allow ingress from ::/0 to remote server administration ports [`Config`: :x:]
 - [ ]  5.4 Ensure no security groups allow ingress from ::/0 to remote server administration ports [`Config`: :x:]
-- [ ]  5.5 Ensure the default security group of every VPC restricts all traffic [`Config`: :x:]
+- [x]  5.5 Ensure the default security group of every VPC restricts all traffic [`Config`: :x:]
 
 </details>
 
@@ -154,6 +157,6 @@ This section contains recommendations for management related services.
 - [x]  6.12 Ensure route table changes are monitored [`CTS Key Events Notifications`:  :white_check_mark:]
 - [x]  6.13 Ensure VPC changes are monitored [`CTS Key Events Notifications`:  :white_check_mark:]
 - [x]  6.14 Ensure Organizations changes are monitored [`CTS Key Events Notifications`:  :white_check_mark:]
-- [x]  6.15 Ensure Account information changes are monitored [`CTS Key Events Notifications`:  :white_check_mark:]
+- [ ]  6.15 Ensure Account information changes are monitored [`CTS Key Events Notifications`: :x:]
 
 </details>
