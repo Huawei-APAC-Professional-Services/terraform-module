@@ -105,9 +105,8 @@ This section contains recommendations for storage related services.
 <summary>3. Database</summary>
 
 - [ ]  3.1 Ensure that encryption-at-rest is enabled for RDS Instances [`Config`: :white_check_mark:]
-- [ ]  3.1 Ensure Auto Minor Version Upgrade feature is Enabled for RDS Instances [`Config`: :x:]
 - [ ]  3.2 Ensure that public access is not given to RDS Instance [`Config`: :white_check_mark:]
-- [ ]  3.2 Ensure that automated backup is enabled RDS Instance [`Config`: :white_check_mark:]
+- [ ]  3.3 Ensure that automated backup is enabled RDS Instance [`Config`: :white_check_mark:]
 
 </details>
 
