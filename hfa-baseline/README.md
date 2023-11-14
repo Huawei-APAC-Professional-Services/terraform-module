@@ -95,8 +95,8 @@ This section contains recommendations for storage related services.
 - [x]  2.1 Ensure MFA Delete is enabled on OBS buckets [`Config`: :x:]
            :information_source: **Critial Operation Protection enabled**
 - [ ]  2.2 Ensure that OBS Buckets are not public accessible [`Config`: :x:]
-- [x]  2.3 Ensure that encryption is enabled for SFS file systems [`Config`: :x:]
-- [x]  2.1 Ensure EBS Volume Encryption is Enabled in all Regions [`Config`: :white_check_mark:]
+- [ ]  2.3 Ensure that encryption is enabled for SFS file systems [`Config`: :x:]
+- [ ]  2.1 Ensure EBS Volume Encryption is Enabled in all Regions [`Config`: :white_check_mark:]
 
 </details>
 
@@ -119,12 +119,12 @@ This section contains recommendations for management related services.
 - [x]  4.1 Ensure CTS is enabled in all regions [`Config`: :white_check_mark:]
 - [x]  4.2 Ensure CTS log file validation is enabled [`Config`: :white_check_mark:]
 - [x]  4.3 Ensure the OBS bucket used to store CTS logs is not publicly accessible [`Config`: :x:]
-- [x]  4.4 Ensure CTS trails are integrated with LTS  [`Config`: :x:]
+- [ ]  4.4 Ensure CTS trails are integrated with LTS  [`Config`: :x:]
 - [x]  4.5 Ensure Config is enabled in all regions [`Config`: :white_check_mark:]
-- [x]  4.6 Ensure OBS bucket access logging is enabled on the CTS OBS bucket [`Config`: :x:]
+- [ ]  4.6 Ensure OBS bucket access logging is enabled on the CTS OBS bucket [`Config`: :x:]
 - [x]  4.7 Ensure CTS logs are encrypted at rest using KMS CMKs [`Config`: :x:]
 - [ ]  4.8 Ensure rotation for customer created symmetric CMKs is enabled [`Config`: :x:]
-- [x]  4.9 Ensure VPC flow logging is enabled in all VPCs [`Config`: :x:]
+- [ ]  4.9 Ensure VPC flow logging is enabled in all VPCs [`Config`: :x:]
 - [ ]  4.10 Ensure that Object-level logging for write events is enabled for OBS bucket [`Config`: :x:]
 
 </details>
@@ -136,7 +136,7 @@ This section contains recommendations for management related services.
 - [ ]  5.2 Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports [`Config`: :x:]
 - [ ]  5.3 Ensure no security groups allow ingress from ::/0 to remote server administration ports [`Config`: :x:]
 - [ ]  5.4 Ensure no security groups allow ingress from ::/0 to remote server administration ports [`Config`: :x:]
-- [x]  5.5 Ensure the default security group of every VPC restricts all traffic [`Config`: :x:]
+- [ ]  5.5 Ensure the default security group of every VPC restricts all traffic [`Config`: :x:]
 
 </details>
 
