@@ -70,6 +70,9 @@ Legend:
 
 :x: Unabled to detect compliance status
 
+- [x] Relevant Settings are set during HFA implementation
+- [ ] Cannot implement the recommendation through configurations
+
 
 <details>
 
