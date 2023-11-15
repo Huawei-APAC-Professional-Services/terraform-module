@@ -62,6 +62,15 @@ module "hfa_security_account_baseline" {
 
 ## CIS Cloud Benchmark equivalent on Huawei Cloud
 
+Legend:
+
+:white_check_mark: Capability of builtin policy
+
+:ballot_box_with_check: Capability of customized policy
+
+:x: Unabled to detect compliance status
+
+
 <details>
 
 <summary>1. Identity and Access Management</summary>
@@ -84,6 +93,7 @@ This section contains recommendations for configuring identity and access manage
 - [ ]  1.13 Ensure IAM policies that allow full "*:*" administrative privileges are not attached [`Config`: :white_check_mark:]
 - [ ]  1.14 Ensure hardware MFA is enabled for the 'root' user account [`Config`: :white_check_mark:]
 - [ ]  1.15 Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments [`Config`: :x:]
+- [ ]  1.16 Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments [`Config`: :ballot_box_with_check:]
 </details>
 
 <details>
