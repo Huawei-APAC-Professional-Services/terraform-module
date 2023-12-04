@@ -70,9 +70,8 @@ Legend:
 
 :x: Unabled to detect compliance status
 
-- [x] Relevant Settings are set during HFA implementation
+- [x] Relevant Settings are set during HFA implementation if applicable
 - [ ] Cannot implement the recommendation through configurations
-
 
 <details>
 
@@ -82,21 +81,21 @@ This section contains recommendations for configuring identity and access manage
 
 - [ ]  1.1 Maintain account contact details [`Config`: :x:]
 :bangbang: **Change Event is captured by CTS but not supported by Key Event Notifications and Config**
-- [ ]  1.2 Ensure no 'root' user account access key exists [`Config`: :x:]
+- [ ]  1.2 Ensure no 'root' user account access key exists [`Config`: :ballot_box_with_check:]
 - [ ]  1.3 Ensure MFA is enabled for the 'root' user account [`Config`: :white_check_mark:]
-- [ ]  1.4 Eliminate use of the 'root' user for administrative and daily tasks [`Config`: :x:]
+- [ ]  1.4 Eliminate use of the 'root' user for administrative and daily tasks [`Config`: :ballot_box_with_check:]
 - [x]  1.5 Ensure IAM password policy requires strong password or minimum length of 14 or greater [`Config`: :white_check_mark:]
-- [x]  1.6 Ensure IAM password policy prevents password reuse [`Config`: :x:]
+- [x]  1.6 Ensure IAM password policy prevents password reuse [`Config`: :ballot_box_with_check:]
 - [ ]  1.7 Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password [`Config`: :white_check_mark:]
 - [ ]  1.8 Do not setup access keys during initial user setup for all IAM users that have a console password [`Config`: :white_check_mark:]
-- [ ]  1.9 Ensure credentials unused for 45 days or greater are disabled [`Config`: :x:]
+- [ ]  1.9 Ensure credentials unused for 45 days or greater are disabled [`Config`: :white_check_mark:]
 - [ ]  1.10 Ensure there is only one active access key available for any single IAM user with console access [`Config`: :white_check_mark:]
 - [ ]  1.11 Ensure access keys are rotated every 90 days or less [`Config`: :white_check_mark:]
-- [ ]  1.12 Ensure IAM Users Receive Permissions Only Through Groups [`Config`: :x:]
+- [x]  1.12 Ensure IAM Users Receive Permissions Only Through Groups [`Config`: :x:]
+            :information_source: **Enterprise Project Management Service diabled**
 - [ ]  1.13 Ensure IAM policies that allow full "*:*" administrative privileges are not attached [`Config`: :white_check_mark:]
 - [ ]  1.14 Ensure hardware MFA is enabled for the 'root' user account [`Config`: :white_check_mark:]
-- [ ]  1.15 Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments [`Config`: :x:]
-- [ ]  1.16 Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments [`Config`: :ballot_box_with_check:]
+- [ ]  1.15 Ensure IAM users are managed centrally via identity federation or Huawei Identity Center for multi-account environments [`Config`: :x:]
 </details>
 
 <details>

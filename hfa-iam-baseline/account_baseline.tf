@@ -26,7 +26,7 @@ resource "huaweicloud_identity_acl" "console" {
 
 resource "huaweicloud_identity_acl" "api" {
   count = (length(var.api_acl_ip_cidrs) == 0) && (length(var.api_acl_ip_ranges) == 0) ? 0 : 1
-  type  = "console"
+  type  = "api"
 
   dynamic "ip_cidrs" {
     for_each = var.console_acl_ip_cidrs

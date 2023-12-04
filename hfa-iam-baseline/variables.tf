@@ -1,7 +1,7 @@
 variable "password_combination" {
   type        = number
   default     = 4
-  description = "Require uppercase letters, lowercase letters, digits, and special characters in password"
+  description = "Require uppercase letters, lowercase letters, digits, and special characters in password by default"
 }
 
 variable "minimum_password_length" {
@@ -12,7 +12,7 @@ variable "minimum_password_length" {
 variable "password_reuse_limit" {
   type        = number
   default     = 10
-  description = "The lastest 2 passwords are not allowed to use by default"
+  description = "The lastest 10 passwords are not allowed to reuse by default"
 }
 
 variable "password_validity_period" {
