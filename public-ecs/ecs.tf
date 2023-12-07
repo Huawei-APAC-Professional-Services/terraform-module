@@ -31,6 +31,7 @@ resource "huaweicloud_compute_instance" "main" {
   flavor_id          = data.huaweicloud_compute_flavors.main.ids[0]
   key_pair           = var.keypair_name
   user_data          = var.user_data
+  agency_name        = var.agency_name
   security_group_ids = [huaweicloud_networking_secgroup.main.id]
   availability_zone  = var.availability_zone
 

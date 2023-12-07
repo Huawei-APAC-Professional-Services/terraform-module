@@ -39,3 +39,8 @@ variable "user_data" {
   type    = string
   default = null
 }
+
+variable "agency_name" {
+  type    = string
+  default = null
+}
