@@ -11,7 +11,7 @@ data "huaweicloud_images_image" "main" {
 }
 
 resource "huaweicloud_networking_secgroup" "main" {
-  name        = "agent-${var.instance_name}"
+  name        = var.resource_name
   description = "allow agent to access internet"
 }
 
@@ -26,7 +26,7 @@ resource "huaweicloud_networking_secgroup_rule" "allow_ssh" {
 }
 
 resource "huaweicloud_compute_instance" "main" {
-  name               = var.instance_name
+  name               = var.resource_name
   image_id           = data.huaweicloud_images_image.main.id
   flavor_id          = data.huaweicloud_compute_flavors.main.ids[0]
   key_pair           = var.keypair_name
@@ -45,8 +45,8 @@ resource "huaweicloud_vpc_eip" "main" {
     type = "5_bgp"
   }
   bandwidth {
-    name        = "agent_${var.instance_name}"
-    size        = 100
+    name        = var.resource_name
+    size        = var.eip_bandwidth
     share_type  = "PER"
     charge_mode = "traffic"
   }

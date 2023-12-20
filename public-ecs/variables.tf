@@ -22,7 +22,7 @@ variable "image_name" {
   default = "Ubuntu 22.04 server 64bit"
 }
 
-variable "instance_name" {
+variable "resource_name" {
   type = string
 }
 
@@ -43,4 +43,9 @@ variable "user_data" {
 variable "agency_name" {
   type    = string
   default = null
+}
+
+variable "eip_bandwidth" {
+  type = number
+  default = 100
 }
