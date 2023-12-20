@@ -22,7 +22,7 @@ variable "image_name" {
   default = "Ubuntu 22.04 server 64bit"
 }
 
-variable "instance_name_suffix" {
+variable "instance_name" {
   type = string
 }
 
