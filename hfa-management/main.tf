@@ -8,3 +8,7 @@ resource "huaweicloud_organizations_account" "huawei_cloud_account"{
 output "account_id" {
   value = huaweicloud_organizations_account.huawei_cloud_account.id
 }
+
+output "root_agency_name" {
+  value = huaweicloud_organizations_account.huawei_cloud_account.agency_name
+}
