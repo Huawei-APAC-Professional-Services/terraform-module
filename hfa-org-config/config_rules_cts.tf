@@ -6,12 +6,10 @@ resource "huaweicloud_rms_organizational_policy_assignment" "cts_support_validat
   organization_id      = local.organization_id
   name                 = "cts-support-validate-check"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.cts_support_validate_check.definitions[0].id, "")
-  policy_filter = [
-    {
-      resource_provider = "cts"
-      resource_type     = "trackers"
-    }
-  ]
+  policy_filter = {
+    resource_provider = "cts"
+    resource_type     = "trackers"
+  }
 }
 
 data "huaweicloud_rms_policy_definitions" "cts_tracker_exists" {
