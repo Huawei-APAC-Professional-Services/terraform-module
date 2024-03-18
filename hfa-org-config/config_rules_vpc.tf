@@ -10,7 +10,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "vpc_acl_unused_chec
     resource_provider = "vpc"
     resource_type     = "firewallGroups"
   }
-  status = "Enabled"
 }
 
 data "huaweicloud_rms_policy_definitions" "vpc_sg_restricted_ssh" {
@@ -25,7 +24,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "vpc_sg_restricted_s
     resource_provider = "vpc"
     resource_type     = "securityGroups"
   }
-  status = "Enabled"
 }
 
 data "huaweicloud_rms_policy_definitions" "vpc_default_sg_closed" {
@@ -40,7 +38,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "vpc_default_sg_clos
     resource_provider = "vpc"
     resource_type     = "securityGroups"
   }
-  status = "Enabled"
 }
 
 data "huaweicloud_rms_policy_definitions" "vpc_flow_logs_enabled" {
@@ -55,5 +52,4 @@ resource "huaweicloud_rms_organizational_policy_assignment" "vpc_flow_logs_enabl
     resource_provider = "vpc"
     resource_type     = "flowLogs"
   }
-  status = "Enabled"
 }

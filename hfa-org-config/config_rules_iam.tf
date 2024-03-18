@@ -6,7 +6,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "iam_key_rotation" {
   organization_id      = local.organization_id
   name                 = "access-keys-rotated"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_key_rotation.definitions[0].id, "")
-  status = "Enabled"
   period = var.config_check_period
   parameters = {
     maxAccessKeyAge = jsonencode(tostring(var.iam_max_key_age))
@@ -21,7 +20,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "iam_group_has_users
   organization_id      = local.organization_id
   name                 = "iam-group-has-users-check"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_group_has_users_check.definitions[0].id, "")
-  status = "Enabled"
   policy_filter {
     resource_provider = "iam"
     resource_type     = "groups"
@@ -36,7 +34,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "iam_user_mfa_enable
   organization_id      = local.organization_id
   name                 = "iam-user-mfa-enabled"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_user_mfa_enabled.definitions[0].id, "")
-  status = "Enabled"
   policy_filter {
     resource_provider = "iam"
     resource_type     = "users"
@@ -51,7 +48,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "iam_user_single_acc
   organization_id      = local.organization_id
   name                 = "iam-user-single-access-key"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_user_single_access_key.definitions[0].id, "")
-  status = "Enabled"
   policy_filter {
     resource_provider = "iam"
     resource_type     = "users"
@@ -66,7 +62,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "mfa_enabled_for_iam
   organization_id      = local.organization_id
   name                 = "mfa-enabled-for-iam-console-access"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.mfa_enabled_for_iam_console_access.definitions[0].id, "")
-  status = "Enabled"
   policy_filter {
     resource_provider = "iam"
     resource_type     = "users"
@@ -81,7 +76,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "root_account_mfa_en
   organization_id      = local.organization_id
   name                 = "root-account-mfa-enabled"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.root_account_mfa_enabled.definitions[0].id, "")
-  status = "Enabled"
   period = var.config_check_period
   excluded_accounts = var.excluded_accounts_for_root_mfa
 }
@@ -94,7 +88,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "iam_password_policy
   organization_id      = local.organization_id
   name                 = "iam-password-policy"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_password_policy.definitions[0].id, "")
-  status = "Enabled"
   policy_filter {
     resource_provider = "iam"
     resource_type     = "users"
@@ -112,7 +105,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "iam_role_has_all_pe
   organization_id      = local.organization_id
   name                 = "iam-role-has-all-permissions"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_role_has_all_permissions.definitions[0].id, "")
-  status = "Enabled"
   policy_filter {
     resource_provider = "iam"
     resource_type     = "roles"

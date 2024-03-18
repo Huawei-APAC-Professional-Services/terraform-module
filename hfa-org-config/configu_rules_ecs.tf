@@ -10,7 +10,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "ecs_instance_key_pa
     resource_provider = "ecs"
     resource_type     = "cloudservers"
   }
-  status = "Enabled"
 }
 
 data "huaweicloud_rms_policy_definitions" "ecs_instance_no_public_ip" {
@@ -25,7 +24,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "ecs_instance_no_pub
     resource_provider = "ecs"
     resource_type     = "cloudservers"
   }
-  status = "Enabled"
 }
 
 data "huaweicloud_rms_policy_definitions" "ecs_multiple_public_ip_check" {
@@ -40,7 +38,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "ecs_multiple_public
     resource_provider = "ecs"
     resource_type     = "cloudservers"
   }
-  status = "Enabled"
 }
 
 data "huaweicloud_rms_policy_definitions" "volume_unused_check" {
@@ -55,7 +52,6 @@ resource "huaweicloud_rms_organizational_policy_assignment" "volume_unused_check
     resource_provider = "evs"
     resource_type     = "volumes"
   }
-  status = "Enabled"
 }
 
 data "huaweicloud_rms_policy_definitions" "volumes_encrypted_check" {
@@ -70,6 +66,5 @@ resource "huaweicloud_rms_organizational_policy_assignment" "volumes_encrypted_c
     resource_provider = "evs"
     resource_type     = "volumes"
   }
-  status = "Enabled"
 }
 

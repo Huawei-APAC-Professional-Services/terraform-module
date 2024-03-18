@@ -10,5 +10,4 @@ resource "huaweicloud_rms_organizational_policy_assignment" "kms_not_scheduled_f
     resource_provider = "dew"
     resource_type     = "keys"
   }
-  status = "Enabled"
 }
