@@ -16,3 +16,7 @@ variable "excluded_accounts_for_root_mfa" {
   type = list(string)
   default = null
 }
+
+variable "organization_id" {
+  type = string
+}
