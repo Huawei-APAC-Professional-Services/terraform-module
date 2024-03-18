@@ -6,7 +6,7 @@ resource "huaweicloud_rms_organizational_policy_assignment" "iam_key_rotation" {
   organization_id      = local.organization_id
   name                 = "access-keys-rotated"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.iam_key_rotation.definitions[0].id, "")
-  period = var.config_check_period
+  period               = var.config_check_period
   parameters = {
     maxAccessKeyAge = jsonencode(tostring(var.iam_max_key_age))
   }
@@ -76,8 +76,8 @@ resource "huaweicloud_rms_organizational_policy_assignment" "root_account_mfa_en
   organization_id      = local.organization_id
   name                 = "root-account-mfa-enabled"
   policy_definition_id = try(data.huaweicloud_rms_policy_definitions.root_account_mfa_enabled.definitions[0].id, "")
-  period = var.config_check_period
-  excluded_accounts = var.excluded_accounts_for_root_mfa
+  period               = var.config_check_period
+  excluded_accounts    = var.excluded_accounts_for_root_mfa
 }
 
 data "huaweicloud_rms_policy_definitions" "iam_password_policy" {

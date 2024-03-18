@@ -13,7 +13,7 @@ variable "iam_max_key_age" {
 }
 
 variable "excluded_accounts_for_root_mfa" {
-  type = list(string)
+  type    = list(string)
   default = null
 }
 
