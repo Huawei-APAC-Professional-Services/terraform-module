@@ -18,6 +18,14 @@ resource "huaweicloud_identity_agency" "cts_admin_trust" {
   description            = "Created by HFA. To ensure that services run properly, do not delete this agency."
   duration               = "FOREVER"
   name                   = "cts_admin_trust"
+  project_role {
+    project = "ap-southeast-3"
+    roles = [
+      "KMS Administrator",
+      "SMN Administrator",
+      "OBS Administrator"
+    ]
+  }
   all_resources_roles = ["KMS Administrator","SMN Administrator","OBS Administrator"]
 
   lifecycle {
