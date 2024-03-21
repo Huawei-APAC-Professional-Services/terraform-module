@@ -14,12 +14,12 @@ variable "smn_tags" {
 
 variable "email_recipients_list" {
   type    = list(string)
-  default = null
+  default = []
 }
 
 variable "sms_recipients_list" {
   type    = list(string)
-  default = null
+  default = []
 }
 
 variable "enable_unauthorized_access_notification" {
@@ -39,7 +39,7 @@ variable "unauthorized_access_notifications_condition" {
 
 variable "critical_event" {
   type    = list(any)
-  default = null
+  default = []
 }
 
 variable "enable_root_access_notification" {
