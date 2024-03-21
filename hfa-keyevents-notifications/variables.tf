@@ -38,7 +38,7 @@ variable "unauthorized_access_notifications_condition" {
 }
 
 variable "critical_event" {
-  type    = list(object(any))
+  type    = list(any)
   default = null
 }
 
