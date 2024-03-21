@@ -8,7 +8,7 @@ variable "smn_topic_display_name" {
 }
 
 variable "smn_tags" {
-  type    = map(string)
+  type    = map(any)
   default = null
 }
 
@@ -38,7 +38,7 @@ variable "unauthorized_access_notifications_condition" {
 }
 
 variable "critical_event" {
-  type    = list(object)
+  type    = list(map(any))
   default = null
 }
 
