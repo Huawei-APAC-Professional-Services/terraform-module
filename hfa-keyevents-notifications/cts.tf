@@ -24,3 +24,28 @@ resource "huaweicloud_cts_notification" "critical_event" {
     }
   }
 }
+
+data "huaweicloud_identity_group" "admin" {
+  name = "admin"
+}
+
+locals {
+  admin_users = toset([for u in data.huaweicloud_identity_group.admin.users : u.name])
+}
+
+resource "huaweicloud_cts_notification" "admin_users_login" {
+  name           = "admin_users_login"
+  operation_type = "customized"
+  smn_topic      = huaweicloud_smn_topic.main.id
+
+  operations {
+    service     = "IAM"
+    resource    = "user"
+    trace_names = ["login", "logout", "loginFailed"]
+  }
+
+  operation_users {
+    group = "admin"
+    users = local.admin_users
+  }
+}
