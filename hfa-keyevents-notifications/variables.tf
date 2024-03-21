@@ -38,7 +38,7 @@ variable "unauthorized_access_notifications_condition" {
 }
 
 variable "critical_event" {
-  type    = list(map(string))
+  type    = list(object)
   default = null
 }
 
