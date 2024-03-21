@@ -8,7 +8,7 @@ variable "smn_topic_display_name" {
 }
 
 variable "smn_tags" {
-  type    = map()
+  type    = map(object)
   default = null
 }
 
