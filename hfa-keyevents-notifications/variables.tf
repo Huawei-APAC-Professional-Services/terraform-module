@@ -24,7 +24,7 @@ variable "sms_recipients_list" {
 
 variable "enable_unauthorized_access_notification" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "unauthorized_access_notifications_rule" {
@@ -40,4 +40,9 @@ variable "unauthorized_access_notifications_condition" {
 variable "critical_event" {
   type    = list(map(string))
   default = null
+}
+
+variable "enable_root_access_notification" {
+  type    = bool
+  default = true
 }

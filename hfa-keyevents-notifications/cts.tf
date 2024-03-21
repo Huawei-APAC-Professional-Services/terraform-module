@@ -34,6 +34,7 @@ locals {
 }
 
 resource "huaweicloud_cts_notification" "admin_users_login" {
+  count          = var.enable_root_access_notification ? 1 : 0
   name           = "admin_users_login"
   operation_type = "customized"
   smn_topic      = huaweicloud_smn_topic.main.id
