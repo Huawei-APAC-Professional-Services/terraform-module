@@ -26,11 +26,20 @@ resource "huaweicloud_identity_agency" "cts_admin_trust" {
       "OBS Administrator"
     ]
   }
-  all_resources_roles = ["KMS Administrator","SMN Administrator","OBS Administrator"]
+  all_resources_roles = ["KMS Administrator", "SMN Administrator", "OBS Administrator"]
 
   lifecycle {
     ignore_changes = [
       description
     ]
   }
+}
+
+resource "huaweicloud_identity_agency" "cloud_resource_management_agency" {
+  count                 = var.cloud_resource_management_account_name != "" ? 1 : 0
+  name                  = var.Cloud_resource_management_agency_name
+  description           = "manage all resource on behalf of enterprise administrator"
+  delegated_domain_name = var.cloud_resource_management_account_name
+
+  all_resources_roles = ["Security Administrator", "FullAccess", "Tenant Administrator"]
 }
