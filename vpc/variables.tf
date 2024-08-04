@@ -28,7 +28,7 @@ variable "vpc_description" {
 
 variable "vpc_secondary_cidrs" {
   type        = list(string)
-  default     = null
+  default     = []
   description = "The VPC secondary cidrs"
   validation {
     condition     = (var.vpc_secondary_cidrs == null || alltrue([for cidr in var.vpc_secondary_cidrs : !contains(["172.31.0.0/16", "192.168.0.0/16", "100.64.0.0/10", "214.0.0.0/7", "198.18.0.0/15", "169.254.0.0/16", "0.0.0.0/8", "127.0.0.0/8", "240.0.0.0/4", "255.255.255.255/32"], cidr)]))

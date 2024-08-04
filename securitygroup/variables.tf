@@ -27,7 +27,7 @@ variable "rules" {
     remote_ip_prefix        = optional(string, null)
     remote_group_id         = optional(string, null)
     remote_address_group_id = optional(string, null)
-    action                  = optional(string, null)
+    action                  = optional(string, "allow")
     priority                = optional(number, null)
   }))
 }
