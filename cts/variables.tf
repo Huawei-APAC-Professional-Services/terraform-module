@@ -2,6 +2,11 @@ variable "cts_bucket_name" {
   type = string
 }
 
+variable "create_cts_bucket" {
+  type    = bool
+  default = false
+}
+
 variable "cts_bucket_tags" {
   type    = map(string)
   default = {}
