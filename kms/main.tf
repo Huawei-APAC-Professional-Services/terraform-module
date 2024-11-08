@@ -1,5 +1,5 @@
 resource "huaweicloud_kms_key" "this" {
-  key_alias         = var.alias
+  key_alias         = var.name
   is_enabled        = var.enabled
   key_algorithm     = var.algorithm
   key_usage         = var.type
