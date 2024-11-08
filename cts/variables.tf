@@ -2,37 +2,52 @@ variable "cts_bucket_name" {
   type = string
 }
 
-variable "create_cts_bucket" {
-  type    = bool
-  default = false
-}
-
-variable "cts_bucket_tags" {
-  type    = map(string)
-  default = {}
-}
-
-variable "cts_bucket_storage_class" {
-  type    = string
-  default = "STANDARD"
-}
-
-variable "cts_bucket_enable_versioning" {
+variable "cts_enabled" {
   type    = bool
   default = true
 }
 
-variable "cts_bucket_log_retention_period" {
-  type    = number
-  default = 3650
-}
-
-variable "cts_bucket_sse_algorithm" {
-  type    = string
-  default = "AES256"
-}
-
-variable "cts_encryption_kms_id" {
+variable "cts_kms_id" {
   type    = string
   default = null
+}
+
+variable "cts_log_file_prefix" {
+  type    = string
+  default = null
+}
+
+variable "cts_lts_enabled" {
+  type    = bool
+  default = false
+}
+
+variable "organization_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "validation_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "is_sort_by_service" {
+  type    = bool
+  default = true
+}
+
+variable "excluded_service" {
+  type    = list(string)
+  default = ["KMS"]
+}
+
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
+
+variable "deltetion_enabled" {
+  type    = bool
+  default = false
 }
