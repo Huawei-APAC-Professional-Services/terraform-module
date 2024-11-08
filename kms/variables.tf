@@ -48,4 +48,15 @@ variable "tags" {
   default = {}
 }
 
+variable "grantees" {
+  type = list(object({
+    name               = string
+    type               = string
+    grantee_principal  = string
+    operations         = list(string)
+    retiring_principal = string
+  }))
+  default = []
+}
+
 
