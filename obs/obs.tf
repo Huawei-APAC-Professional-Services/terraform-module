@@ -35,6 +35,22 @@ resource "huaweicloud_obs_bucket" "this" {
     }
   }
 
+  dynamic "lifecycle_rule" {
+    for_each = var.lifecycle_rule
+    content {
+      name    = lifecycle_rule.value.name
+      enabled = lifecycle_rule.enabled
+      prefix  = lifecycle_rule.prefix
+
+      dynamic "expiration" {
+        for_each = lifecycle_rule.value.retention_days
+        content {
+          days = expiration.value
+        }
+      }
+    }
+  }
+
   quota         = var.bucket_quota
   multi_az      = var.multi_az_enabled
   encryption    = var.encryption_enabled

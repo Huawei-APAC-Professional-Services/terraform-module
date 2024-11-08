@@ -87,12 +87,12 @@ variable "cors_rule" {
   default = {}
 }
 
-#variable "lifecycle_rule" {
-#  type = list(object({
-#    name = string
-#    enabled = optional(bool,true)
-#    prefix = optional(string,null)
-#    
-#  }))
-#  default = []
-#}
+variable "lifecycle_rule" {
+  type = list(object({
+    name           = string
+    enabled        = optional(bool, true)
+    prefix         = optional(string, null)
+    retention_days = optional(list(number), [])
+  }))
+  default = []
+}
