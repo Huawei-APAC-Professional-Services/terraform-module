@@ -12,16 +12,6 @@ variable "acl" {
   default = "private"
 }
 
-variable "bucket_policy" {
-  type    = string
-  default = null
-}
-
-variable "policy_format" {
-  type    = string
-  default = null
-}
-
 variable "storage_class" {
   type    = string
   default = "STANDARD"
@@ -94,5 +84,10 @@ variable "lifecycle_rule" {
     prefix         = optional(string, null)
     retention_days = optional(list(number), [])
   }))
+  default = []
+}
+
+variable "bucket_policy" {
+  type    = list(string)
   default = []
 }

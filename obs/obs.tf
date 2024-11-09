@@ -1,8 +1,6 @@
 resource "huaweicloud_obs_bucket" "this" {
   bucket        = var.name
   acl           = var.acl
-  policy        = var.bucket_policy
-  policy_format = var.policy_format
   storage_class = var.storage_class
   versioning    = var.enable_versioning
 
