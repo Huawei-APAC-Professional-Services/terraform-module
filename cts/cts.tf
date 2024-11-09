@@ -13,5 +13,6 @@ resource "huaweicloud_cts_tracker" "this" {
 }
 
 data "huaweicloud_cts_trackers" "system" {
+  count      = var.cts_lts_enabled ? 1 : 0
   tracker_id = huaweicloud_cts_tracker.this.id
 }
