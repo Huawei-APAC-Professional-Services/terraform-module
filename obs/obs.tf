@@ -39,8 +39,8 @@ resource "huaweicloud_obs_bucket" "this" {
     for_each = var.lifecycle_rule
     content {
       name    = lifecycle_rule.value.name
-      enabled = lifecycle_rule.enabled
-      prefix  = lifecycle_rule.prefix
+      enabled = lifecycle_rule.value.enabled
+      prefix  = lifecycle_rule.value.prefix
 
       dynamic "expiration" {
         for_each = lifecycle_rule.value.retention_days
