@@ -12,7 +12,7 @@ resource "huaweicloud_cts_tracker" "this" {
   delete_tracker       = var.deltetion_enabled
 }
 
-data "huaweicloud_cts_trackers" "system" {
+data "huaweicloud_cts_trackers" "this" {
   count      = var.cts_lts_enabled ? 1 : 0
   tracker_id = huaweicloud_cts_tracker.this.id
 }
