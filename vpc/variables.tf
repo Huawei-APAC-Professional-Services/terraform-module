@@ -57,27 +57,31 @@ variable "vpc_flowlog_name" {
 variable "subnets" {
   description = "List of subnets object including name and cidr"
   type = list(object({
-    name              = string
-    cidr              = string
-    availability_zone = optional(string, null)
-    tags              = optional(map(string), {})
-    description       = optional(string, null)
+    name                  = string
+    cidr                  = string
+    availability_zone     = optional(string, null)
+    tags                  = optional(map(string), {})
+    description           = optional(string, null)
+    enable_vpc_flowlog    = optional(bool, false)
+    flowlog_traffic_type  = optional(string, "all")
+    flowlog_lts_group_id  = optional(string, null)
+    flowlog_lts_stream_id = optional(string, null)
   }))
 }
 
-variable "flow_log_traffic_type" {
+variable "vpc_flow_log_traffic_type" {
   description = "The type of traffic to capture. Valid values: accept, reject, all."
   type        = string
   default     = "all"
 }
 
-variable "log_group_id" {
+variable "vpc_flowlog_log_group_id" {
   type        = string
   description = "LTS Log Gropup ID for vpc flow log"
   default     = null
 }
 
-variable "log_stream_id" {
+variable "vpc_flowlog_log_stream_id" {
   type        = string
   description = "LTS Log Stream ID for vpc flow log"
   default     = null
