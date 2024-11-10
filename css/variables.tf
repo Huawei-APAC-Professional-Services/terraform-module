@@ -84,6 +84,7 @@ variable "client_node_config" {
     volume_type     = string
     volume_size     = number
   })
+  default = null
 }
 
 variable "cold_node_config" {
