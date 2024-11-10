@@ -60,3 +60,17 @@ variable "routes" {
   }))
   default = []
 }
+
+variable "logstash_config" {
+  type = list(object({
+    name                     = string
+    conf_content             = string
+    workers                  = optional(number, null)
+    batch_size               = optional(number, 125)
+    batch_delay_ms           = optional(number, null)
+    queue_type               = optional(string, "memory")
+    queue_check_point_writes = optional(number, 1024)
+    queue_max_bytes_mb       = optional(number, 1024)
+  }))
+  default = []
+}
