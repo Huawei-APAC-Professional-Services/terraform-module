@@ -59,13 +59,13 @@ variable "period" {
 }
 
 variable "master_node_config" {
-  type = object({
+  type = list(object({
     flavor          = string
     instance_number = number
     volume_type     = string
     volume_size     = number
-  })
-  default = null
+  }))
+  default = []
 }
 
 variable "data_node_config" {
@@ -78,32 +78,32 @@ variable "data_node_config" {
 }
 
 variable "client_node_config" {
-  type = object({
+  type = list(object({
     flavor          = string
     instance_number = number
     volume_type     = string
     volume_size     = number
-  })
-  default = null
+  }))
+  default = []
 }
 
 variable "cold_node_config" {
-  type = object({
+  type = list(object({
     flavor          = string
     instance_number = number
     volume_type     = string
     volume_size     = number
-  })
-  default = null
+  }))
+  default = []
 }
 
 variable "public_access" {
-  type = object({
+  type = list(object({
     bandwidth         = number
     whitelist_enabled = bool
     whitelist_cidrs   = optional(string, null)
-  })
-  default = null
+  }))
+  default = []
 }
 
 variable "kibana_public_access" {
@@ -116,21 +116,21 @@ variable "kibana_public_access" {
 }
 
 variable "backup_strategy" {
-  type = object({
+  type = list(object({
     start_time  = string
     keep_days   = optional(number, null)
     prefix      = optional(string, null)
     bucket      = optional(string, null)
     backup_path = optional(string, null)
     agency      = optional(string, null)
-  })
-  default = null
+  }))
+  default = []
 }
 
 variable "vpcep_endpoint" {
-  type = object({
+  type = list(object({
     endpoint_with_dns_name = bool
     whitelist_cidrs        = optional(string, null)
-  })
-  default = null
+  }))
+  default = []
 }

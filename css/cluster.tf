@@ -28,7 +28,7 @@ resource "huaweicloud_css_cluster" "this" {
   }
 
   dynamic "master_node_config" {
-    for_each = var.master_node_config == null ? {} : tomap(var.master_node_config)
+    for_each = var.master_node_config
     content {
       flavor          = master_node_config.value["flavor"]
       instance_number = master_node_config.value["instance_number"]
@@ -40,7 +40,7 @@ resource "huaweicloud_css_cluster" "this" {
   }
 
   dynamic "client_node_config" {
-    for_each = var.client_node_config == null ? {} : tomap(var.client_node_config)
+    for_each = var.client_node_config
     content {
       flavor          = client_node_config.value["flavor"]
       instance_number = client_node_config.value["instance_number"]
@@ -52,7 +52,7 @@ resource "huaweicloud_css_cluster" "this" {
   }
 
   dynamic "cold_node_config" {
-    for_each = var.cold_node_config == null ? {} : tomap(var.cold_node_config)
+    for_each = var.cold_node_config
     content {
       flavor          = cold_node_config.value["flavor"]
       instance_number = cold_node_config.value["instance_number"]
@@ -64,7 +64,7 @@ resource "huaweicloud_css_cluster" "this" {
   }
 
   dynamic "public_access" {
-    for_each = var.public_access == null ? {} : tomap(var.public_access)
+    for_each = var.public_access
     content {
       bandwidth         = public_access.value["bandwidth"]
       whitelist_enabled = public_access.value["whitelist_enabled"]
@@ -73,7 +73,7 @@ resource "huaweicloud_css_cluster" "this" {
   }
 
   dynamic "kibana_public_access" {
-    for_each = var.kibana_public_access == null ? {} : tomap(var.kibana_public_access)
+    for_each = var.kibana_public_access
     content {
       bandwidth         = kibana_public_access.value["bandwidth"]
       whitelist_enabled = kibana_public_access.value["whitelist_enabled"]
@@ -82,7 +82,7 @@ resource "huaweicloud_css_cluster" "this" {
   }
 
   dynamic "backup_strategy" {
-    for_each = var.backup_strategy == null ? {} : tomap(var.backup_strategy)
+    for_each = var.backup_strategy
     content {
       start_time  = backup_strategy.value["start_time"]
       keep_days   = backup_strategy.value["keep_days"]
@@ -94,7 +94,7 @@ resource "huaweicloud_css_cluster" "this" {
   }
 
   dynamic "vpcep_endpoint" {
-    for_each = var.vpcep_endpoint == null ? {} : tomap(var.vpcep_endpoint)
+    for_each = var.vpcep_endpoint
     content {
       endpoint_with_dns_name = vpcep_endpoint.value["endpoint_with_dns_name"]
       whitelist              = vpcep_endpoint.value["whitelist"]
