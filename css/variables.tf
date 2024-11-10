@@ -93,6 +93,7 @@ variable "cold_node_config" {
     volume_type     = string
     volume_size     = number
   })
+  default = null
 }
 
 variable "public_access" {
