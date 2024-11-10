@@ -1,62 +1,62 @@
 variable "name" {
-    type = string
+  type = string
 }
 
 variable "engine_version" {
-    type = string
-    default = "7.10.0
+  type    = string
+  default = "7.10.0"
 }
 
 variable "availability_zone" {
-    type = string
+  type = string
 }
 
 variable "vpc_id" {
-    type = string
+  type = string
 }
 
 variable "subnet_id" {
-    type = string
+  type = string
 }
 
 variable "secgroup_id" {
-    type = string
+  type = string
 }
 
 variable "tags" {
-    type = map(string)
-    default = {}
+  type    = map(string)
+  default = {}
 }
 
 variable "charging_mode" {
-    type = string
-    default = "postPaid"
+  type    = string
+  default = "postPaid"
 }
 
 variable "period_unit" {
-    type = string
-    default = null
+  type    = string
+  default = null
 }
 
 variable "period" {
-    type = number
-    default = null
+  type    = number
+  default = null
 }
 
 variable "node_config" {
-    type = list(object({
-        flavor = string
-        instance_number = number
-        volume_type = optional(string, "ULTRAHIGH")
-        volume_size = number
-    }))
-    default = []
+  type = list(object({
+    flavor          = string
+    instance_number = number
+    volume_type     = optional(string, "ULTRAHIGH")
+    volume_size     = number
+  }))
+  default = []
 }
 
 variable "routes" {
-    type = list(object({
-        ip_address = string
-        ip_net_mask = string
-    }))
-    default = []
+  type = list(object({
+    ip_address  = string
+    ip_net_mask = string
+  }))
+  default = []
 }
