@@ -14,7 +14,7 @@ variable "type" {
 
 variable "retention_period" {
   type    = number
-  default = 12
+  default = 24
 }
 
 variable "data_type" {
