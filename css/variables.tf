@@ -69,12 +69,12 @@ variable "master_node_config" {
 }
 
 variable "data_node_config" {
-  type = object({
+  type = list(object({
     flavor          = string
     instance_number = number
     volume_type     = string
     volume_size     = number
-  })
+  }))
 }
 
 variable "client_node_config" {
@@ -107,12 +107,12 @@ variable "public_access" {
 }
 
 variable "kibana_public_access" {
-  type = object({
+  type = list(object({
     bandwidth         = number
     whitelist_enabled = bool
     whitelist_cidrs   = string
-  })
-  default = null
+  }))
+  default = []
 }
 
 variable "backup_strategy" {
