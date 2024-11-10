@@ -18,11 +18,11 @@ resource "huaweicloud_css_cluster" "this" {
   dynamic "ess_node_config" {
     for_each = tomap(var.data_node_config)
     content {
-      flavor          = ess_node_config.flavor
-      instance_number = ess_node_config.instance_number
+      flavor          = ess_node_config.value.flavor
+      instance_number = ess_node_config.value.instance_number
       volume {
-        size        = ess_node_config.volume_size
-        volume_type = ess_node_config.volume_type
+        size        = ess_node_config.value.volume_size
+        volume_type = ess_node_config.value.volume_type
       }
     }
   }
@@ -75,9 +75,9 @@ resource "huaweicloud_css_cluster" "this" {
   dynamic "kibana_public_access" {
     for_each = var.kibana_public_access == null ? {} : tomap(var.kibana_public_access)
     content {
-      bandwidth         = kibana_public_access.bandwidth
-      whitelist_enabled = kibana_public_access.whitelist_enabled
-      whitelist         = kibana_public_access.whitelist_cidrs
+      bandwidth         = kibana_public_access.value.bandwidth
+      whitelist_enabled = kibana_public_access.value.whitelist_enabled
+      whitelist         = kibana_public_access.value.whitelist_cidrs
     }
   }
 
