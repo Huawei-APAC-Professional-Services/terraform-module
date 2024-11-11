@@ -22,23 +22,56 @@ variable "description" {
   default = null
 }
 
-// Attachments Related Variables
-#variable "attachments" {
-#  type = list(object({
-#    name                   = string
-#    vpc_id                 = string
-#    subnet_id              = string
-#    auto_create_vpc_routes = optional(bool, false)
-#    tags                   = optional(map, {})
-#  }))
-#  default = null
-#}
-#
-#variable "route_tables" {
-#  type = list(object({
-#    name                   = string
-#    description                = optional(string,null)
-#    tags                   = optional(map, {})
-#  }))
-#  default = null
-#}
+variable "route_tables" {
+  type = list(object({
+    name        = string
+    description = optional(string, null)
+    tags        = optional(map(string), {})
+  }))
+  default = []
+}
+
+variable "attachments" {
+  type = list(object({
+    name        = string
+    description = optional(string, null)
+    enabled     = optional(bool, true)
+    vpc_id      = string
+    subnet_id   = string
+    tags        = optional(map(string), {})
+  }))
+  default = []
+}
+
+variable "associations" {
+  type = list(object({
+    attachment_name  = string
+    route_table_name = string
+  }))
+  default = []
+}
+
+variable "flowlog_config" {
+  type = list(object({
+    name            = string
+    log_store_type  = optional(string, "LTS")
+    log_group_id    = string
+    log_stream_id   = string
+    resource_type   = optional(string, "attachment")
+    attachment_name = string
+    description     = optional(string, null)
+    enabled         = optional(bool, true)
+  }))
+  default = []
+}
+
+variable "static_routes" {
+  type = list(object({
+    name             = string
+    route_table_name = string
+    destination_cidr = string
+    attachment_name  = optional(string, null)
+    is_blackhole     = optional(bool, null)
+  }))
+  default = []
+}
