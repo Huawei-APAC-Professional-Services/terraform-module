@@ -1,5 +1,5 @@
 resource "huaweicloud_er_vpc_attachment" "this" {
-  for_each               = { for attachment in var.var.attachments : attachment.name => attachment }
+  for_each               = { for attachment in var.attachments : attachment.name => attachment }
   instance_id            = huaweicloud_er_instance.this.id
   name                   = each.value.name
   description            = each.value.description
