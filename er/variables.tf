@@ -7,16 +7,6 @@ variable "asn" {
   default = 64512
 }
 
-variable "enable_default_propagation" {
-  type    = bool
-  default = false
-}
-
-variable "enable_default_association" {
-  type    = bool
-  default = false
-}
-
 variable "auto_accept_shared_attachments" {
   type    = bool
   default = false
