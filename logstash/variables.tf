@@ -65,9 +65,9 @@ variable "logstash_config" {
   type = list(object({
     name                     = string
     conf_content             = string
-    workers                  = optional(number, null)
+    workers                  = optional(number, 4)
     batch_size               = optional(number, 125)
-    batch_delay_ms           = optional(number, null)
+    batch_delay_ms           = optional(number, 50)
     queue_type               = optional(string, "memory")
     queue_check_point_writes = optional(number, 1024)
     queue_max_bytes_mb       = optional(number, 1024)
