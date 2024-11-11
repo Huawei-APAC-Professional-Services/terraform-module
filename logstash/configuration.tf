@@ -19,9 +19,8 @@ resource "time_sleep" "wait_logstash_config_verification" {
   create_duration = "180s"
 }
 
-resource "huaweicloud_css_scan_task" "this" {
-  for_each   = toset([for config in var.logstash_config : config.name])
+resource "huaweicloud_css_logstash_pipeline" "this" {
   cluster_id = huaweicloud_css_logstash_cluster.this.id
-  name       = each.value
+  names      = [for config in var.logstash_config : config.name]
   depends_on = [time_sleep.wait_logstash_config_verification]
 }

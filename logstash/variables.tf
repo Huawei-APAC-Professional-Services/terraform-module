@@ -74,3 +74,8 @@ variable "logstash_config" {
   }))
   default = []
 }
+
+variable "pipeline_keepalived" {
+  type    = bool
+  default = true
+}
