@@ -1,5 +1,5 @@
 resource "huaweicloud_css_logstash_configuration" "this" {
-  for_each     = toset(var.logstash_config)
+  for_each     = var.logstash_config
   cluster_id   = huaweicloud_css_logstash_cluster.this.id
   name         = each.value["name"]
   conf_content = each.value["conf_content"]
