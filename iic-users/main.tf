@@ -1,5 +1,11 @@
 data "huaweicloud_identitycenter_instance" "this" {}
 
+data "huaweicloud_organizations_accounts" "this" {}
+
+locals {
+  account_info = { for account in data.data.huaweicloud_organizations_accounts.this.accounts : account.name => account.id }
+}
+
 resource "huaweicloud_identitycenter_user" "this" {
   for_each          = { for user in var.users : user.name => user }
   identity_store_id = data.huaweicloud_identitycenter_instance.this.identity_store_id
@@ -17,7 +23,7 @@ resource "huaweicloud_identitycenter_account_assignment" "this" {
   permission_set_id = each.value.permissionset_id
   principal_id      = huaweicloud_identitycenter_user.this[each.key].id
   principal_type    = "USER"
-  target_id         = each.value.account_id
+  target_id         = local.account_info[each.value.account_name]
   target_type       = "ACCOUNT"
   depends_on        = [huaweicloud_identitycenter_user.this]
 }

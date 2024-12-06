@@ -6,6 +6,6 @@ variable "users" {
     given_name       = string
     email            = string
     permissionset_id = string
-    account_id       = string
+    account_name     = string
   }))
 }
