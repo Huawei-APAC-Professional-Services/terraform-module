@@ -3,7 +3,7 @@ data "huaweicloud_identitycenter_instance" "this" {}
 data "huaweicloud_organizations_accounts" "this" {}
 
 locals {
-  account_info = { for account in data.data.huaweicloud_organizations_accounts.this.accounts : account.name => account.id }
+  account_info = { for account in data.huaweicloud_organizations_accounts.this.accounts : account.name => account.id }
 }
 
 resource "huaweicloud_identitycenter_user" "this" {
