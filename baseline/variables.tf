@@ -117,19 +117,24 @@ variable "operation_protection_third_party_mobile" {
   default = null
 }
 
-variable "iam_user_self_management" {
-  type = object({
-    access_key = optional(bool, false)
-    password   = optional(bool, true)
-    email      = optional(bool, false)
-    mobile     = optional(bool, false)
-  })
-  default = {
-    access_key = false
-    password   = true
-    email      = false
-    mobile     = false
-  }
+variable "iam_user_allow_self_managing_accesskey" {
+  type    = bool
+  default = false
+}
+
+variable "iam_user_allow_self_changing_password" {
+  type    = bool
+  default = true
+}
+
+variable "iam_user_allow_self_changing_email" {
+  type    = bool
+  default = false
+}
+
+variable "iam_user_allow_self_changing_mobile" {
+  type    = bool
+  default = false
 }
 
 variable "console_acl_ip_cidrs" {
