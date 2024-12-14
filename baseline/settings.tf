@@ -23,7 +23,7 @@ resource "huaweicloud_identity_protection_policy" "this" {
   verification_email  = var.operation_protection_third_party_email
   verification_mobile = var.operation_protection_third_party_mobile
   dynamic "self_management" {
-    for_each = var.iam_user_self_management
+    for_each = tomap(var.iam_user_self_management)
     content {
       access_key = self_management.value
       password   = self_management.value
