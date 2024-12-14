@@ -11,14 +11,14 @@ variable "config_collect_specific_resources" {
 
 # Example: {"bucket":"","region":""}
 variable "obs_channel" {
-  type    = map(string)
-  default = {}
+  type    = list(map(string))
+  default = []
 }
 
 # Example: {"smn_urn":"","region":""}
 variable "smn_channel" {
-  type    = map(string)
-  default = {}
+  type    = list(map(string))
+  default = []
 }
 
 # 2-4 of uppercase letters, lowercase letters, digits, and special characters for password
