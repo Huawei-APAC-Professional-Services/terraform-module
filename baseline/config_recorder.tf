@@ -14,7 +14,7 @@ resource "huaweicloud_identity_agency" "rms_tracker_agency" {
 }
 
 resource "huaweicloud_rms_resource_recorder" "this" {
-  agency_name = "rms_tracker_agency"
+  agency_name = huaweicloud_identity_agency.rms_tracker_agency.name
 
   selector {
     all_supported  = var.config_collect_all_supported_resource
