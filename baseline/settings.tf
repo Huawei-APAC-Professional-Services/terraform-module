@@ -25,10 +25,10 @@ resource "huaweicloud_identity_protection_policy" "this" {
   dynamic "self_management" {
     for_each = var.iam_user_self_management
     content {
-      access_key = self_management.value["access_key"]
-      password   = self_management.value["password"]
-      email      = self_management.value["email"]
-      mobile     = self_management.value["mobile"]
+      access_key = self_management.value
+      password   = self_management.value
+      email      = self_management.value
+      mobile     = self_management.value
     }
   }
 }

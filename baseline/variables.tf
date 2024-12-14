@@ -118,12 +118,12 @@ variable "operation_protection_third_party_mobile" {
 }
 
 variable "iam_user_self_management" {
-  type = map(object({
-    access_key = optional(bool, false)
-    password   = optional(bool, true)
-    email      = optional(bool, false)
-    mobile     = optional(bool, false)
-  }))
+  type = object({
+    access_key = false
+    password   = true
+    email      = false
+    mobile     = false
+  })
   default = {
     access_key = false
     password   = true
