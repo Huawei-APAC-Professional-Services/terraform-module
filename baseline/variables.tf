@@ -119,10 +119,10 @@ variable "operation_protection_third_party_mobile" {
 
 variable "iam_user_self_management" {
   type = object({
-    access_key = false
-    password   = true
-    email      = false
-    mobile     = false
+    access_key = optional(bool, false)
+    password   = optional(bool, true)
+    email      = optional(bool, false)
+    mobile     = optional(bool, false)
   })
   default = {
     access_key = false
