@@ -1,5 +1,5 @@
 resource "huaweicloud_identity_agency" "this" {
-  for_each              = { for agency in var.var.agencies : agency.name => agency }
+  for_each              = { for agency in var.agencies : agency.name => agency }
   name                  = each.value["name"]
   description           = each.value["description"]
   delegated_domain_name = each.value["delegated_domain_name"]
