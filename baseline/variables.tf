@@ -124,6 +124,12 @@ variable "iam_user_self_management" {
     email      = optional(bool, false)
     mobile     = optional(bool, false)
   })
+  default = {
+    access_key = false
+    password   = true
+    email      = false
+    mobile     = false
+  }
 }
 
 variable "console_acl_ip_cidrs" {
