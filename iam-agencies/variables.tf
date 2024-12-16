@@ -6,6 +6,7 @@ variable "service_agencies" {
     duration               = optional(string, "FOREVER")
     policy_names           = optional(list(string), null)
   }))
+  default = []
 }
 
 variable "account_agencies" {
