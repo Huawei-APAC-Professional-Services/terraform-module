@@ -7,7 +7,7 @@ variable "prometheus_type" {
 }
 
 variable "prometheus_version" {
-  type = string
+  type    = string
   default = null
 }
 

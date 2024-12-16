@@ -6,7 +6,7 @@ resource "huaweicloud_aom_prom_instance" "this" {
 }
 
 resource "huaweicloud_aom_cloud_service_access" "this" {
-  for_each              = var.connected_cloud_services
+  for_each              = toset(var.connected_cloud_services)
   instance_id           = huaweicloud_aom_prom_instance.this.id
   service               = each.value
   tag_sync              = var.prometheus_tag_sync
