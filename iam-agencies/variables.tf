@@ -18,5 +18,5 @@ variable "account_agencies" {
     domain_roles          = optional(list(string), null)
     all_resources_roles   = optional(list(string), null)
   }))
-  default = [{}]
+  default = []
 }
