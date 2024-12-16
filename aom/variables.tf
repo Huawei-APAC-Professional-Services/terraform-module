@@ -32,6 +32,6 @@ variable "enabled_cross_account_aggregation_rule" {
 }
 
 variable "accounts_list" {
-  type    = list(map(string))
-  default = []
+  type    = map(string)
+  default = {}
 }
