@@ -20,8 +20,8 @@ resource "huaweicloud_aom_multi_account_aggregation_rule" "this" {
   dynamic "accounts" {
     for_each = var.accounts_list
     content {
-      id   = each.value["account_id"]
-      name = each.value["account_name"]
+      id   = each.key
+      name = each.value
     }
   }
 
