@@ -8,6 +8,7 @@ variable "prometheus_type" {
 
 variable "prometheus_version" {
   type = string
+  default = null
 }
 
 variable "enterprise_project_id" {
