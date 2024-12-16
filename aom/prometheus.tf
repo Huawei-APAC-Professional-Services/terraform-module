@@ -13,23 +13,22 @@ resource "huaweicloud_aom_cloud_service_access" "this" {
   enterprise_project_id = var.enterprise_project_id
 }
 
-resource "huaweicloud_aom_multi_account_aggregation_rule" "this" {
-  count       = var.enabled_cross_account_aggregation_rule ? 1 : 0
-  instance_id = huaweicloud_aom_prom_instance.this.id
-
-  dynamic "accounts" {
-    for_each = var.accounts_list
-    content {
-      name = accounts.key
-      id   = accounts.value
-    }
-  }
-
-  services {
-    service = "SYS.ELB"
-    metrics = [
-      "huaweicloud_sys_elb_m1_cps",
-      "huaweicloud_sys_elb_m2_act_conn",
-    ]
-  }
-}
+#resource "huaweicloud_aom_multi_account_aggregation_rule" "this" {
+#  instance_id = huaweicloud_aom_prom_instance.this.id
+#
+#  dynamic "accounts" {
+#    for_each = var.accounts_list
+#    content {
+#      name = accounts.key
+#      id   = accounts.value
+#    }
+#  }
+#
+#  services {
+#    service = "SYS.ELB"
+#    metrics = [
+#      "huaweicloud_sys_elb_m1_cps",
+#      "huaweicloud_sys_elb_m2_act_conn",
+#    ]
+#  }
+#}

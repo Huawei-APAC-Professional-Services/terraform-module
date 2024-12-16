@@ -26,12 +26,12 @@ variable "connected_cloud_services" {
   default = []
 }
 
-variable "enabled_cross_account_aggregation_rule" {
-  type    = bool
-  default = false
-}
-
-variable "accounts_list" {
-  type    = map(string)
-  default = {}
-}
+#variable "enabled_cross_account_aggregation_rule" {
+#  type    = bool
+#  default = false
+#}
+#
+#variable "accounts_list" {
+#  type    = map(string)
+#  default = {}
+#}
