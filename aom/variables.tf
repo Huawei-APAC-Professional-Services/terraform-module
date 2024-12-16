@@ -1,8 +1,26 @@
-variable "prometheus_instances" {
-  type = list(object({
-    name                  = string
-    type                  = string
-    enterprise_project_id = optional(string, "0")
-    version               = optional(string, null)
-  }))
+variable "prometheus_name" {
+  type = string
+}
+
+variable "prometheus_type" {
+  type = string
+}
+
+variable "prometheus_version" {
+  type = string
+}
+
+variable "enterprise_project_id" {
+  type    = string
+  default = null
+}
+
+variable "prometheus_tag_sync" {
+  type    = string
+  default = "auto"
+}
+
+variable "connected_cloud_services" {
+  type    = list(string)
+  default = []
 }
