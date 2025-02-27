@@ -5,5 +5,9 @@ data "huaweicloud_identity_permissions" "all_system_policies" {
 }
 
 locals {
-  role_id_map = {for permission in data.huaweicloud_identity_permissions.permissions: permission.name => permission.id}
+  policies = { for policy in data.huaweicloud_identity_permissions.all_system_policies : policy.name => policy.id }
+}
+
+output "policies" {
+  value = local.policies
 }

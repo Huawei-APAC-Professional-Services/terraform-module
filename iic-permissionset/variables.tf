@@ -40,7 +40,7 @@ variable "custom_policy" {
 
 variable "permission_sets" {
   type = list(object({
-    name = string
-    session_duration =  optional(string,"PT8H")
+    name             = string
+    session_duration = optional(string, "PT8H")
   }))
 }
