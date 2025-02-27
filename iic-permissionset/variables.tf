@@ -1,27 +1,3 @@
-variable "permissionset_name" {
-  type        = string
-  description = "The name of the permission set"
-  default     = "mytest"
-}
-
-variable "permission_session_duration" {
-  type        = string
-  description = "The validity period of the permission, format: PT8H"
-  default     = "PT8H"
-}
-
-variable "system_roles_display_name" {
-  type        = list(string)
-  description = "A list of displayed names that represent system defined roles"
-  default     = []
-}
-
-variable "system_roles_name" {
-  type        = list(string)
-  description = "A list of names that represent system defined roles"
-  default     = []
-}
-
 ## Custom role must be version 1.1, the following one is not json encoded:
 #{
 #    "Version": "1.1",
@@ -60,4 +36,11 @@ variable "custom_policy" {
   type        = string
   default     = ""
   description = "JSON encoded policy"
+}
+
+variable "permission_sets" {
+  type = list(object({
+    name = string
+    session_duration =  optional(string,"PT8H")
+  }))
 }
