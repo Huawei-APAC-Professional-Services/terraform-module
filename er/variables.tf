@@ -28,8 +28,8 @@ variable "default_propagation_route_table_id" {
 }
 
 variable "default_association_route_table_id" {
-  type    = bool
-  default = false
+  type    = string
+  default = null
 }
 
 variable "tags" {
