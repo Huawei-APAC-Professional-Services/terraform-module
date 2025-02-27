@@ -4,8 +4,10 @@ resource "huaweicloud_er_instance" "this" {
   name                           = var.name
   availability_zones             = slice(data.huaweicloud_er_availability_zones.this.names, 0, 1)
   asn                            = var.asn
-  enable_default_propagation     = false
-  enable_default_association     = false
+  enable_default_propagation     = var.enable_default_propagation
+  enable_default_association     = var.enable_default_association
+  default_propagation_route_table_id = var.default_propagation_route_table_id
+  default_association_route_table_id = var.default_association_route_table_id
   auto_accept_shared_attachments = var.auto_accept_shared_attachments
   description                    = var.description
   tags                           = var.tags

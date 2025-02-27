@@ -12,6 +12,26 @@ variable "auto_accept_shared_attachments" {
   default = false
 }
 
+variable "enable_default_propagation" {
+  type = bool
+  default = false
+}
+
+variable "enable_default_association" {
+  type = bool
+  default = false
+}
+
+variable "default_propagation_route_table_id" {
+  type = string
+  default = null
+}
+
+variable "default_association_route_table_id" {
+  type = bool
+  default = false
+}
+
 variable "tags" {
   type    = map(string)
   default = {}
