@@ -8,6 +8,3 @@ locals {
   policies = { for policy in data.huaweicloud_identity_permissions.all_system_policies : policy.name => policy.id }
 }
 
-output "policies" {
-  value = local.policies
-}
