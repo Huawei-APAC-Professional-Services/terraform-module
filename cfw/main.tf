@@ -22,4 +22,8 @@ resource "huaweicloud_cfw_firewall" "this" {
   ips_protection_mode = var.ips_mode
 
   tags = var.tags
+
+  timeouts = {
+    create = "10m"
+  }
 }
