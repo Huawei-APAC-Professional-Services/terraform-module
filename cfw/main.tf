@@ -23,7 +23,7 @@ resource "huaweicloud_cfw_firewall" "this" {
 
   tags = var.tags
 
-  timeouts = {
+  timeouts {
     create = "10m"
   }
 }
