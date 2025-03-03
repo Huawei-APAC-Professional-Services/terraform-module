@@ -11,9 +11,9 @@ output "cluster_ca_certificate" {
 }
 
 output "cluster_client_key" {
-  value = huaweicloud_cce_cluster.this.certificate_users
+  value = [for u in huaweicloud_cce_cluster.this.certificate_users : s.client_certificate_data if s.name == "user"][0]
 }
 
 output "cluster_client_certificate" {
-  value = huaweicloud_cce_cluster.this.certificate_users
+  value = [for u in huaweicloud_cce_cluster.this.certificate_users : s.client_key_data if s.name == "user"][0]
 }
