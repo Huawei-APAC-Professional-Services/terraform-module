@@ -11,7 +11,7 @@ resource "huaweicloud_cce_node_pool" "this" {
   password                 = each.value.password
   subnet_id                = each.value.subnet_id
   ecs_group_id             = each.value.ecs_group_id
-  extend_params            = each.value.extend_params
+  extend_param             = each.value.extend_params
   scall_enable             = true
   min_node_count           = 1
   max_node_count           = 10
