@@ -1,5 +1,5 @@
 resource "kubernetes_cluster_role_v1" "this" {
-  for_each = { for role in var.roles : role.name => role }
+  for_each = { for role in var.cluster_roles : role.name => role }
   metadata {
     name = each.value["name"]
   }
