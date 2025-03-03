@@ -86,3 +86,23 @@ variable "vpc_flowlog_log_stream_id" {
   description = "LTS Log Stream ID for vpc flow log"
   default     = null
 }
+
+variable "er_subnet_name" {
+  type    = string
+  default = null
+}
+
+variable "er_attachment_name" {
+  type    = string
+  default = null
+}
+
+variable "er_id" {
+  type    = string
+  default = null
+}
+
+variable "vpc_routes_er" {
+  type    = list(string)
+  default = []
+}
