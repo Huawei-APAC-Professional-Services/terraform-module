@@ -2,6 +2,9 @@ resource "kubernetes_cluster_role_binding_v1" "this" {
   for_each = { for role in var.cluster_role_bindings : role.name => role }
   metadata {
     name = each.value["name"]
+    annotations = {
+      "CCE.com/IAM" = "true"
+    }
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"

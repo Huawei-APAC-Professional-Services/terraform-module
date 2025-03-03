@@ -3,6 +3,9 @@ resource "kubernetes_role_binding_v1" "this" {
   metadata {
     name      = each.value["name"]
     namespace = each.value["namespace"]
+    annotations = {
+      "CCE.com/IAM" = "true"
+    }
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
