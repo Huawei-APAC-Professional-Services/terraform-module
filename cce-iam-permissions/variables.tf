@@ -7,6 +7,7 @@ variable "cluster_roles" {
       verbs     = list(string)
     }))
   }))
+  default = []
 }
 
 variable "cluster_role_bindings" {
@@ -19,6 +20,7 @@ variable "cluster_role_bindings" {
       api_group = optional(string, "rbac.authorization.k8s.io")
     }))
   }))
+  default = []
 }
 
 variable "roles" {
@@ -31,6 +33,7 @@ variable "roles" {
       verbs     = list(string)
     }))
   }))
+  default = []
 }
 
 variable "role_bindings" {
@@ -44,4 +47,5 @@ variable "role_bindings" {
       api_group = optional(string, "rbac.authorization.k8s.io")
     }))
   }))
+  default = []
 }
