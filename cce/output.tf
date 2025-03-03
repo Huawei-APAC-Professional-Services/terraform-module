@@ -17,3 +17,7 @@ output "cluster_client_key" {
 output "cluster_client_certificate" {
   value = [for u in huaweicloud_cce_cluster.this.certificate_users : u.client_key_data if u.name == "user"][0]
 }
+
+output "kuber_config" {
+  value = huaweicloud_cce_cluster.this.kube_config_raw
+}
