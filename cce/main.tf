@@ -20,6 +20,7 @@ resource "huaweicloud_cce_cluster" "this" {
   eip                              = var.api_eip_address
   kube_proxy_mode                  = var.kube_proxy_mode
   charging_mode                    = var.charging_mode
+  period                           = var.period
   period_unit                      = var.period_unit
   tags                             = var.tags
 }

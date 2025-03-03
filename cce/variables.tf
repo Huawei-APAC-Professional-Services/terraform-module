@@ -85,7 +85,7 @@ variable "multi_az" {
 }
 
 variable "api_eip_address" {
-  type = string
+  type    = string
   default = null
 }
 
@@ -97,6 +97,11 @@ variable "kube_proxy_mode" {
 variable "charging_mode" {
   type    = string
   default = "postPaid"
+}
+
+variable "period" {
+  type    = number
+  default = null
 }
 
 variable "period_unit" {
