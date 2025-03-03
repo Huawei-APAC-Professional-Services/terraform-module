@@ -86,6 +86,7 @@ variable "multi_az" {
 
 variable "api_eip_address" {
   type = string
+  default = null
 }
 
 variable "kube_proxy_mode" {
