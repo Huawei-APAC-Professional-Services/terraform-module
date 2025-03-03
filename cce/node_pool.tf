@@ -1,5 +1,5 @@
 resource "huaweicloud_cce_node_pool" "this" {
-  for_each                 = { for pool in var.var.node_pools : pool.name => pool }
+  for_each                 = { for pool in var.node_pools : pool.name => pool }
   cluster_id               = huaweicloud_cce_cluster.this.id
   name                     = each.value.name
   initial_node_count       = each.value.initial_node_count
@@ -11,7 +11,7 @@ resource "huaweicloud_cce_node_pool" "this" {
   password                 = each.value.password
   subnet_id                = each.value.subnet_id
   ecs_group_id             = each.value.ecs_group_id
-  extend_params            = each.value.node_pools
+  extend_params            = each.value.extend_params
   scall_enable             = true
   min_node_count           = 1
   max_node_count           = 10
